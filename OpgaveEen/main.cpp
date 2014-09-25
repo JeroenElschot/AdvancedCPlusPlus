@@ -4,6 +4,9 @@ using namespace std;
 
 int main()
 {
-    cout << "Hello world!" << endl;
-    return 0;
+    Application *appl = new Factory();
+    MenuHandler *handler = new MenuHandler(appl);
+    handler->showMenu();
+    delete handler;
+    delete appl;
 }

@@ -1,3 +1,8 @@
+#include <string>       // voor: std::string
+#include <vector>       // voor: std::vector
+using std::string;
+using std::vector;
+
 class Application; // forward declaration
 class MenuFunction; // forward declaration
 class MenuHandler   // The generic handler

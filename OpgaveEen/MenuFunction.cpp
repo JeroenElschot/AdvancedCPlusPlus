@@ -1,19 +1,19 @@
-// The pseudo type for an Application method
-typedef void (Application::* ApplFunction) ();
- 
+#include <string>       // voor: std::string
+using std::string;
+
 class MenuFunction
 {
 private:
     const string description;
     const ApplFunction function;
 public:
-    MenuFunction(...,...) : ... {}
+    //MenuFunction(...,...) : ... {}
     const string getDescription() const
     {
-        ...
+        //...
     }
     const ApplFunction getFunction() const
     {
-        ...
+        //...
     }
 };
