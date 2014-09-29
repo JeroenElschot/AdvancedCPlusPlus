@@ -32,6 +32,10 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="BaseClass.cpp" />
+		<Unit filename="Factory.cpp" />
+		<Unit filename="MenuFunction.cpp" />
+		<Unit filename="MenuHandler.cpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
