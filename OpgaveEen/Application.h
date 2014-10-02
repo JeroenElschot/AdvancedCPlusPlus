@@ -1,8 +1,11 @@
-#include <string>       // voor: std::string
-#include <vector>       // voor: std::vector
-#include "MenuFunction.cpp"
-using std::string;
-using std::vector;
+#ifndef APPLICATION_H
+#define APPLICATION_H
+
+#include "MenuHandler.h"
+#include <iostream>
+#include <vector>
+
+using namespace std;
 
 class Application   // The Application baseclass
 {
@@ -13,7 +16,7 @@ public:
     Application(const string& s) : description(s) {}
     virtual ~Application()
     {
-        //…
+
     } // for cleanup
     const string& getDescription() const
     {
@@ -24,3 +27,5 @@ public:
         return functions;
     }
 };
+
+#endif // APPLICATION_H

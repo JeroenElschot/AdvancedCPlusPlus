@@ -1,14 +1,23 @@
-#include "BaseClass.cpp" // for the public Application
+#include "Factory.h"
+#define METHOD(method) \
+static_cast<AdminFunction>(&Factory::method)
 
-// A derived class for a specific Factory
-class Factory : public Application
+Factory::Factory()
+    : Application("Factory Administration")
 {
-//...
-public:
-    Factory();
-// the methods to be called from the menu
-    void addSupplier();
-    void addMachine();
-    void addProblem();
-//...
-};
+// register some methods as menu-functions
+    menufunctions.push_back(
+        new MenuFunction( "add a supplier",
+                          METHOD(addSupplier)) );
+    menufunctions.push_back(
+        new MenuFunction( "add a machine",
+                          METHOD(addMachine)) );
+    menufunctions.push_back(
+        new MenuFunction( "report a problem",
+                          METHOD(addProblem)) );
+}
+
+Factory::~Factory()
+{
+    //dtor
+}

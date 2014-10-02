@@ -1,5 +1,8 @@
 #include <iostream>
 
+#include "Application.h"
+#include "Factory.h"
+
 using namespace std;
 
 int main()
