@@ -4,6 +4,7 @@
 #include <vector>
 #include <iostream>
 #include "MenuFunction.h"
+#include "Application.h"
 
 using namespace std;
 
