@@ -1,0 +1,26 @@
+Context
+Op een wat achtergebleven onderwijsinstelling worden de gegevens van studenten nog
+bijgehouden in meerdere tekstbestanden (csv stijl o.i.d.). Per student worden, op een regel:
+naam, voornaam, woonplaats, geslacht en klas bijgehouden (maak zelf wat testbestanden).
+Het staat je vrij om een ander scheidingsteken te gebruiken dan de ',' van csv. Een '|' o.i.d.
+is ook prima. De tekstbestanden kunnen informatie van meerdere studenten bevatten, b.v.
+een bestand voor elke klas of een bestand per woonplaats of volstrekt willekeurig, maar elke
+student staat dan wel op een aparte regel.
+Om een beetje mee te tellen in deze tijd, wordt besloten over te gaan op een XML database.
+
+Opdracht
+Schrijf een programma dat begint met alle tekstbestanden in te lezen en de informatie in een
+container te stoppen als verzameling Student objecten. Omdat gegevens vaker voor
+kunnen komen, worden alle student objecten vervolgens gesorteerd op naam en worden
+duplicaten geëlimineerd (Bedenk zelf een definitie voor wat hier als “dubbel” telt).
+Vervolgens worden de Student objecten gesorteerd op klas en tenslotte worden ze weer
+als XML tekst weggeschreven naar een nieuw tekstbestand.
+Maak zoveel mogelijk gebruik van istream en ostream iteratoren, functie objecten en in ieder
+geval ook de volgende generieke functies: copy, sort, unique, stable_sort,
+for_each.
+
+Voetnoot
+Bij de beoordeling van deze opdracht wordt vooral gelet op het correct en optimaal gebruik
+van C++ features zoals, classes, inheritance, member initialization, const, reference,
+operatoren, templates, generieke algoritmes en de optimale taakverdeling tussen classes,
+methodes en gewone functies. Een “java stijl” oplossing wordt hier zeker niet geaccepteerd.
