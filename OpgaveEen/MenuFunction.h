@@ -6,7 +6,7 @@
 using std::string;
 using std::vector;
 
-
+class Application; // to fix Application has not been delcared
 
 // The pseudo type for an Application method
 typedef void (Application::* ApplFunction) ();
