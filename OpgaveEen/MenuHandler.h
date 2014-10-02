@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <iostream>
-#include "MenuHandler.h"
+#include "MenuFunction.h"
 
 using namespace std;
 
@@ -16,7 +16,6 @@ class MenuHandler { // The generic handler
 public:
     MenuHandler(Application *ap): appl(ap), functions(ap->getFunctions()) {
     }
-
     void showMenu() const;
 };
 
