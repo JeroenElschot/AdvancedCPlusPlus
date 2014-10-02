@@ -1,8 +1,7 @@
 #include "Factory.h"
+#include "MenuFunction.h"
 #define METHOD(method) \
 static_cast<AdminFunction>(&Factory::method)
-
-#include "MenuFunction.h"
 
 Factory::Factory()
     : Application("Factory Administration")

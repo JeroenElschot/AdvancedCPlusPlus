@@ -17,7 +17,7 @@ private:
     const string description;
     const ApplFunction function;
 public:
-    MenuFunction(...,...) : ... {}
+    MenuFunction(const string& d, const ApplFunction& f) : description(d), function(f) {}
     const string getDescription() const
     {
 
