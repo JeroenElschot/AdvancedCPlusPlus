@@ -1,19 +1,19 @@
 #include "Factory.h"
 #include "MenuFunction.h"
 #define METHOD(method) \
-static_cast<AdminFunction>(&Factory::method)
+static_cast<action>(&Factory::method)
 
 Factory::Factory()
     : Application("Factory Administration")
 {
 // register some methods as menu-functions
-    menufunctions.push_back(
+    functions.push_back(
         new MenuFunction( "add a supplier",
                           METHOD(addSupplier)) );
-    menufunctions.push_back(
+    functions.push_back(
         new MenuFunction( "add a machine",
                           METHOD(addMachine)) );
-    menufunctions.push_back(
+    functions.push_back(
         new MenuFunction( "report a problem",
                           METHOD(addProblem)) );
 }

@@ -1,14 +1,17 @@
 #include "MenuHandler.h"
 
-MenuHandler::MenuHandler()
+MenuHandler(Application *ap): appl(ap), functions(ap->getFunctions())
 {
-    //ctor
+
 }
 
 MenuHandler::~MenuHandler()
 {
     //dtor
 }
+
+
+
 
 void MenuHandler::showMenu() const
 {

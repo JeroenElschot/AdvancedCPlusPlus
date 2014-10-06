@@ -14,8 +14,11 @@ class MenuHandler { // The generic handler
     Application * const appl;
     vector<MenuFunction*> const & functions;
 public:
-    MenuHandler(Application *ap): appl(ap), functions(ap->getFunctions()) {
+    MenuHandler(Application *ap): appl(ap), functions(ap->getFunctions())
+    {
+
     }
+
     void showMenu() const;
 };
 

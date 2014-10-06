@@ -20,11 +20,11 @@ public:
     MenuFunction(const string& d, const ApplFunction& f) : description(d), function(f) {}
     const string getDescription() const
     {
-
+        return description;
     }
     const ApplFunction getFunction() const
     {
-
+        return function;
     }
 };
 
