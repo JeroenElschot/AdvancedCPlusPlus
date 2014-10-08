@@ -1,0 +1,31 @@
+#ifndef MENUFUNCTION_H
+#define MENUFUNCTION_H
+#include "Application.h"
+#include <string>
+using namespace std;
+
+typedef void (Application::* ApplFunction)();
+
+class MenuFunction
+{
+private:
+    const string description;
+    const ApplFunction function;
+public:
+    MenuFunction(const string& s, const ApplFunction f) : description(s) , function(f)
+    {
+
+    }
+
+    const string getDescription() const
+    {
+        return description;
+    }
+
+    const ApplFunction getFunction() const
+    {
+        return function;
+    }
+};
+
+#endif // MENUFUNCTION_H
