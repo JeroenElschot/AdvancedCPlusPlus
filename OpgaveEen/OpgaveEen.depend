@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1412776084 source:f:\school\vierde jaar\c++\advancedcplusplus\opgaveeen\main.cpp
+	<iostream>
+	"MenuHandler.h"
+
+1412775992 source:f:\school\vierde jaar\c++\advancedcplusplus\opgaveeen\menuhandler.cpp
+	"MenuHandler.h"
+
+1412776633 f:\school\vierde jaar\c++\advancedcplusplus\opgaveeen\menuhandler.h
+	<iostream>
+	<cstdlib>
+	<conio.h>
+
