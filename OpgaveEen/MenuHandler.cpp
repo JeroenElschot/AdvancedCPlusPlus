@@ -1,12 +1,11 @@
 #include "MenuHandler.h"
 
-MenuHandler::MenuHandler()
-{
 
-}
 
 void MenuHandler::showMenu() const
 {
+
+    const int ESCAPE = 27;
 
     cout << "Press ESC to quit" << endl;
 

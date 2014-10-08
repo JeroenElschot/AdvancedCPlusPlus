@@ -7,15 +7,14 @@
 
 using namespace std;
 
-const int ESCAPE = 27;
-
+class Application;
 
 class MenuHandler
 {
-    // Application call
+    Application * const appl;
     // vector with menufunctions
     public:
-        MenuHandler();
+        MenuHandler(Application *app) : appl(app){}
         void showMenu() const;
 
 };

@@ -1,5 +1,6 @@
 #include <iostream>
 #include "MenuHandler.h"
+#include "Application.h"
 
 using namespace std;
 
@@ -7,7 +8,8 @@ int main()
 {
     cout << "Starting program..." << endl;
 
-    MenuHandler *handler = new MenuHandler();
+    Application *appl = new Application("test");
+    MenuHandler *handler = new MenuHandler(appl);
     handler->showMenu();
 
     delete handler;
