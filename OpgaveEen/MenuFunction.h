@@ -1,16 +1,17 @@
 #ifndef MENUFUNCTION_H
 #define MENUFUNCTION_H
 #include "Application.h"
+#include "Factory.h"
 #include <iostream>
 using namespace std;
 
-typedef void (Application::* ApplFunction)();
+typedef void (Factory::*ApplFunction)(void);
 
 class MenuFunction
 {
 private:
     const string description;
-    //const ApplFunction function;
+    ApplFunction myFunction;
 public:
     MenuFunction(const string& s) : description(s){}
 
@@ -19,10 +20,10 @@ public:
         return description;
     }
 
-    //const ApplFunction getFunction() const
-    //{
-     //   return function;
-    //}
+    void setApplFunction(ApplFunction func){
+        myFunction = func;
+    }
+
 };
 
 #endif // MENUFUNCTION_H
