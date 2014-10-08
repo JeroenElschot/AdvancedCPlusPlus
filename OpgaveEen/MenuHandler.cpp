@@ -15,6 +15,21 @@ void MenuHandler::showMenu() const
         cout << "\t" << (i+1) << "\t" << functions[i]->getDescription() << endl;
     }
 
+    cout << "\t\tChoose Action: " << flush;
+    unsigned chosenIndex = 0;
+    cin >> chosenIndex;
+    if(chosenIndex == 0)
+        return;
+    if((chosenIndex >= 1) && (chosenIndex <= functions.size()))
+    {
+        //call method
+        (appl->*(functions[chosenIndex-1]->getFunction())) ();
+    }
+    else
+    {
+        cout << "No function!" << endl;
+    }
+
     for(;;)
     {
         char key = getch();

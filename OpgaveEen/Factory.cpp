@@ -11,7 +11,7 @@ Factory::Factory(): Application("Application Menu")
 
 void Factory::sayHello()
 {
-    cout << "hahah" << endl;
+    cout << "Hallo, hoe is het" << endl;
 }
 
 

@@ -24,6 +24,11 @@ public:
         myFunction = func;
     }
 
+    ApplFunction getFunction(){
+        return myFunction;
+    }
+
+
 };
 
 #endif // MENUFUNCTION_H
