@@ -12,10 +12,7 @@ private:
     const string description;
     const ApplFunction function;
 public:
-    MenuFunction(const string& s, const ApplFunction f) : description(s) , function(f)
-    {
-
-    }
+    MenuFunction(const string& s, const ApplFunction f) : description(s) , function(f){}
 
     const string getDescription() const
     {

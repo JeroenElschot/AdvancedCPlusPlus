@@ -1,16 +1,13 @@
 #include <iostream>
 #include "Factory.h"
+#include "MenuFunction.h"
+#define METHOD(method)
 
-#define METHOD(method) \
-
-static_cast<AdminFunction>(&Factory::method)
+//static_cast<TEST>(&Factory::method);
 
 Factory::Factory(): Application("Application Menu")
 {
-    functions.push_back(new MenuFunction("say HELLO!",METHOD(sayHello)));
+    functions.push_back(new MenuFunction("1",METHOD(sayHello)));
 }
 
-Factory::~Factory()
-{
-    //dtor
-}
+
