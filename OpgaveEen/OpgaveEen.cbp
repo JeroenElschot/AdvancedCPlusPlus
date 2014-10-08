@@ -2,28 +2,26 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="Opgave1" />
+		<Option title="OpgaveEen" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/Opgave1" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug/OpgaveEen" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
-					<Add directory="include" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/Opgave1" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Release/OpgaveEen" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
-					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -32,20 +30,14 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
+			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="Application.cpp" />
-		<Unit filename="Application.h" />
-		<Unit filename="Factory.cpp" />
-		<Unit filename="Factory.h" />
-		<Unit filename="MenuFunction.cpp" />
-		<Unit filename="MenuFunction.h" />
-		<Unit filename="MenuHandler.cpp" />
-		<Unit filename="MenuHandler.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
 			<debugger />
+			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>
