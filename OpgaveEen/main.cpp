@@ -7,9 +7,6 @@ using namespace std;
 
 int main()
 {
-    cout << "Starting program..." << endl;
-
-
     Factory *appl = new Factory();
     MenuHandler *handler = new MenuHandler(appl);
     handler->showMenu();

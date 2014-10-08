@@ -13,15 +13,11 @@ private:
     const string description;
     ApplFunction myFunction;
 public:
-    MenuFunction(const string& s) : description(s){}
+    MenuFunction(const string& s, ApplFunction func) : description(s), myFunction(func){}
 
     const string getDescription() const
     {
         return description;
-    }
-
-    void setApplFunction(ApplFunction func){
-        myFunction = func;
     }
 
     ApplFunction getFunction(){
