@@ -4,20 +4,18 @@
 #include <iostream>
 #include <cstdlib>
 #include <conio.h>
-#include <vector>
-
-#include "MenuFunction.h"
+#include "Application.h"
 
 using namespace std;
 
-class Application;
+
 
 class MenuHandler
 {
     Application * const appl;
-    vector<MenuFunction*> const & functions;
+    // vector with menufunctions
     public:
-        MenuHandler(Application *app) : appl(app), functions(app->getFunctions()){}
+        MenuHandler(Application *app) : appl(app){}
         void showMenu() const;
 
 };

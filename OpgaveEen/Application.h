@@ -5,13 +5,12 @@
 #include <vector>
 using namespace std;
 
-class MenuFunction;
 
 class Application
 {
     protected:
         const string description;
-        vector<MenuFunction *> functions;
+        vector<string> functions;
     public:
         Application(const string& s) : description(s){}
         virtual ~Application()
@@ -23,7 +22,7 @@ class Application
             return description;
         }
 
-        const vector<MenuFunction*>& getFunctions() const
+        const vector<string> getFunctions() const
         {
             return functions;
         }

@@ -8,12 +8,7 @@ void MenuHandler::showMenu() const
     cout << endl << endl;
 
     //printing heading
-    cout << "===== " << appl->getDescription() << " =====" << endl;
-
-    for(unsigned i = 0; i < functions.size(); i++)
-    {
-        //cout << "\t" << (i+1) << "\t" << functions[i]->getDescription() << endl;
-    }
+    cout << "=====" << appl->getDescription() << "=====" << endl;
 
     for(;;)
     {
