@@ -12,7 +12,7 @@ void MenuHandler::showMenu() const
 
     for(unsigned i = 0; i < functions.size(); i++)
     {
-        //cout << "\t" << (i+1) << "\t" << functions[i]->getDescription() << endl;
+        cout << "\t" << (i+1) << "\t" << functions[i]->getDescription() << endl;
     }
 
     for(;;)

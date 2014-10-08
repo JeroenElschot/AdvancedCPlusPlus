@@ -6,7 +6,7 @@ Factory::Factory(): Application("Application Menu")
 {
     MenuFunction *mf = new MenuFunction("Function List");
     mf->setApplFunction(&Factory::sayHello);
-    functions.push_back(new MenuFunction("121"));
+    functions.push_back(mf);
 }
 
 void Factory::sayHello()
