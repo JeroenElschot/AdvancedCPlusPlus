@@ -11,6 +11,7 @@
 using namespace std;
 
 class Application;
+class MenuFunction;
 
 class MenuHandler
 {

@@ -23,7 +23,7 @@ void MenuHandler::showMenu() const
             cout << "Program is quiting" << endl;
             break;
         }
-        else if(key = 'b')
+        else if(key == 'b')
         {
 
         }

@@ -10,19 +10,19 @@ class MenuFunction
 {
 private:
     const string description;
-    const ApplFunction function;
+    //const ApplFunction function;
 public:
-    MenuFunction(const string& s, const ApplFunction f) : description(s) , function(f){}
+    MenuFunction(const string& s) : description(s){}
 
     const string getDescription() const
     {
         return description;
     }
 
-    const ApplFunction getFunction() const
-    {
-        return function;
-    }
+    //const ApplFunction getFunction() const
+    //{
+     //   return function;
+    //}
 };
 
 #endif // MENUFUNCTION_H

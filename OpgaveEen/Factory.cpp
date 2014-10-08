@@ -1,13 +1,16 @@
 #include <iostream>
 #include "Factory.h"
 #include "MenuFunction.h"
-#define METHOD(method)
-
-//static_cast<TEST>(&Factory::method);
+#define METHOD(method) \
 
 Factory::Factory(): Application("Application Menu")
 {
-    functions.push_back(new MenuFunction("1",METHOD(sayHello)));
+    functions.push_back(new MenuFunction("1"));
+}
+
+void Factory::sayHello()
+{
+    cout << "hahah" << endl;
 }
 
 
