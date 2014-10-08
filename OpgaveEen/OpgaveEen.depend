@@ -34,28 +34,33 @@
 
 1412780291 on.h"
 
-1412778535 source:c:\users\jeroenelschot\documents\github\advancedcplusplus\opgaveeen\main.cpp
+1412797144 source:c:\users\jeroenelschot\documents\github\advancedcplusplus\opgaveeen\main.cpp
 	<iostream>
 	"MenuHandler.h"
+	"Factory.h"
 	"Application.h"
 
-1412778535 c:\users\jeroenelschot\documents\github\advancedcplusplus\opgaveeen\menuhandler.h
+1412797124 c:\users\jeroenelschot\documents\github\advancedcplusplus\opgaveeen\menuhandler.h
 	<iostream>
 	<cstdlib>
 	<conio.h>
-	"Application.h"
+	<vector>
+	"MenuFunction.h"
 
-1412778535 c:\users\jeroenelschot\documents\github\advancedcplusplus\opgaveeen\application.h
+1412796297 c:\users\jeroenelschot\documents\github\advancedcplusplus\opgaveeen\application.h
 	<iostream>
 	<vector>
 
-1412778535 source:c:\users\jeroenelschot\documents\github\advancedcplusplus\opgaveeen\menuhandler.cpp
+1412796848 source:c:\users\jeroenelschot\documents\github\advancedcplusplus\opgaveeen\menuhandler.cpp
 	"MenuHandler.h"
 
-1412778755 source:c:\users\jeroenelschot\documents\github\advancedcplusplus\opgaveeen\menufunction.cpp
+1412781097 source:c:\users\jeroenelschot\documents\github\advancedcplusplus\opgaveeen\menufunction.cpp
 	"MenuFunction.h"
 
-1412779706 c:\users\jeroenelschot\documents\github\advancedcplusplus\opgaveeen\menufunction.h
+1412797094 c:\users\jeroenelschot\documents\github\advancedcplusplus\opgaveeen\menufunction.h
+	"Application.h"
+	"Factory.h"
+	<iostream>
 
 1412779706 gin/master
 	<string>
@@ -93,4 +98,15 @@
 	<iostream>
 	"Factory.h"
 	"MenuFunction.h"
+
+1412796848 source:c:\users\jeroenelschot\documents\github\advancedcplusplus\opgaveeen\factory.cpp
+	<iostream>
+	"Factory.h"
+	"MenuFunction.h"
+
+1412788529 c:\users\jeroenelschot\documents\github\advancedcplusplus\opgaveeen\factory.h
+	"Application.h"
+
+1412796297 source:c:\users\jeroenelschot\documents\github\advancedcplusplus\opgaveeen\application.cpp
+	"Application.h"
 

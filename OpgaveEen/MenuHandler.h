@@ -10,15 +10,15 @@
 
 using namespace std;
 
-class Application;
+class Factory;
 class MenuFunction;
 
 class MenuHandler
 {
-    Application * const appl;
+    Factory * const appl;
     vector<MenuFunction*> const & functions;
     public:
-        MenuHandler(Application *app) : appl(app), functions(app->getFunctions()){}
+        MenuHandler(Factory *app) : appl(app), functions(app->getFunctions()){}
         void showMenu() const;
 
 };

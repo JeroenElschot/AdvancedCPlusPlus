@@ -10,7 +10,7 @@ int main()
     cout << "Starting program..." << endl;
 
 
-    Application *appl = new Factory();
+    Factory *appl = new Factory();
     MenuHandler *handler = new MenuHandler(appl);
     handler->showMenu();
 
