@@ -9,7 +9,7 @@ int main()
 {
     Factory *appl = new Factory();
     MenuHandler *handler = new MenuHandler(appl);
-    handler->showMenu();
+    handler->showStartMenu();
 
     delete handler;
 

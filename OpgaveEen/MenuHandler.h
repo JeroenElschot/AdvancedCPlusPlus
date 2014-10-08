@@ -19,6 +19,7 @@ class MenuHandler
     vector<MenuFunction*> const & functions;
     public:
         MenuHandler(Factory *app) : appl(app), functions(app->getFunctions()){}
+        void showStartMenu() const;
         void showMenu() const;
 
 };

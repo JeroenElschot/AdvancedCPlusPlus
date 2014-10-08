@@ -54,7 +54,8 @@ void Factory::realQuit(){
 
 void Factory::changeNiceColor()
 {
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < 10; i++)
+    {
 		system("Color 1A");
 		system("Color 2B");
 		system("Color 3C");

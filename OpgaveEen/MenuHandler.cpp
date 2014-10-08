@@ -1,13 +1,45 @@
 #include "MenuHandler.h"
 
-void MenuHandler::showMenu() const
+void MenuHandler::showStartMenu() const
 {
     const int ESCAPE = 27;
     for(;;)
     {
-        cout << "Starting menu..." << endl;
-        cout << endl << endl;
+        system("cls");
 
+        cout << "==== Headquarters ====" << endl << endl;
+        cout << "Press l to see the menu" << endl;
+        cout << "Press b to bind stuff" << endl;
+        cout << "Press ESC to quit" << endl;
+        cout << endl;
+
+        char key = cin.get();
+
+        cout << "gekozen:" << key << endl;
+
+        if(key == ESCAPE)
+        {
+            cout << "Program is quiting" << endl;
+        }
+        else if(key == 'b')
+        {
+        }
+        else if (key == 'l')
+        {
+            showMenu();
+        }
+        else
+        {
+
+        }
+    }
+
+    system("cls");
+}
+
+void MenuHandler::showMenu() const
+{
+        cout << endl << endl;
 
         cout << "===== " << appl->getDescription() << " =====" << endl;
 
@@ -21,40 +53,18 @@ void MenuHandler::showMenu() const
         unsigned chosenIndex = 0;
         cin >> chosenIndex;
         if(chosenIndex == 0)
-            break;
-        if((chosenIndex >= 1) && (chosenIndex <= functions.size()))
+        {
+
+        }
+        else if((chosenIndex >= 1) && (chosenIndex <= functions.size()))
         {
             cout << endl;
             (appl->*(functions[chosenIndex-1]->getFunction())) ();
             system("cls");
-        } else {
+        }
+        else
+        {
             system("cls");
         }
-    }
-
-    system("cls");
-
-    cout << "==== Headquarters ====" << endl << endl;
-    cout << "Press l to see the menu" << endl;
-    cout << "Press b to bind stuff" << endl;
-	cout << "Press ESC to quit" << endl;
-	cout << endl;
-
-
-	while(true){
-        char key = getch();
-        if(key == ESCAPE){
-            cout << "Program is quiting" << endl;
-            break;
-        } else if(key == 'b'){
-
-        } else {
-            break;
-        }
-    }
-
-    system("cls");
-    showMenu();
 }
-
 
