@@ -1,13 +1,14 @@
 #include "MenuHandler.h"
 
-
-
 void MenuHandler::showMenu() const
 {
-
     const int ESCAPE = 27;
 
     cout << "Press ESC to quit" << endl;
+    cout << endl << endl;
+
+    //printing heading
+    cout << "=====" << appl->getDescription() << "=====" << endl;
 
     for(;;)
     {

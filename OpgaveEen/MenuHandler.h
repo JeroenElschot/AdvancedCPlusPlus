@@ -4,10 +4,11 @@
 #include <iostream>
 #include <cstdlib>
 #include <conio.h>
+#include "Application.h"
 
 using namespace std;
 
-class Application;
+
 
 class MenuHandler
 {
