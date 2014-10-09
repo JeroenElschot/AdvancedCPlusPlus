@@ -13,7 +13,7 @@ void MenuHandler::showStartMenu() const
         cout << "Press ESC to quit" << endl;
         cout << endl;
 
-        char key = cin.get();
+        char key = getch();
 
         cout << "gekozen:" << key << endl;
 

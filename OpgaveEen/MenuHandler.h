@@ -10,17 +10,21 @@
 
 using namespace std;
 
-class Factory;
+class Application;
 class MenuFunction;
 
 class MenuHandler
 {
-    Factory * const appl;
-    vector<MenuFunction*> const & functions;
+    Application * const appl;
+    vector<MenuFunction*> const & functions; // aanbod van applicatie
+    //vector< map<char,MenuFunction*> *>         menus;
     public:
-        MenuHandler(Factory *app) : appl(app), functions(app->getFunctions()){}
+        MenuHandler(Application *app) : appl(app), functions(app->getFunctions()){}
         void showStartMenu() const;
         void showMenu() const;
+        void bind();
+        void unbind();
+        void gosub(int);
 
 };
 

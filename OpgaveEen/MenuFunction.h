@@ -5,22 +5,23 @@
 #include <iostream>
 using namespace std;
 
-typedef void (Factory::*ApplFunction)(void);
+typedef void (Application::*ApplFunction)();
 
 class MenuFunction
 {
 private:
     const string description;
-    ApplFunction myFunction;
+    const ApplFunction myFunction;
 public:
-    MenuFunction(const string& s, ApplFunction func) : description(s), myFunction(func){}
+    MenuFunction(const string s, ApplFunction func) : description(s), myFunction(func){}
 
     const string getDescription() const
     {
         return description;
     }
 
-    ApplFunction getFunction(){
+    const ApplFunction getFunction()const
+    {
         return myFunction;
     }
 
