@@ -18,10 +18,7 @@ class MenuHandler
     Application * const appl;
     vector<MenuFunction*> const & functions; // aanbod van applicatie
     vector< map<char,MenuFunction*> *>         menus;
-        std::map<int, char> *keys;
-
-    private:
-        //typedef std::map<int, char*> keys; // bind a key to a function index
+    std::map<int, char> *keys; // houd de bindings bij voor de functies en keys
 
     public:
 

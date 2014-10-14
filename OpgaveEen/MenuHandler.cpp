@@ -12,6 +12,10 @@ void MenuHandler::showStartMenu() const
         cout << "Press b to bind stuff" << endl;
 
         // show other functions that were binded here, including sub menus
+        //for(unsigned i = 0; i < keys->size(); i++)
+        //{
+            //do something with iteration
+        //}
 
         cout << "Press ESC to quit" << endl;
         cout << endl;
@@ -61,6 +65,7 @@ void MenuHandler::BindFunctions() const
             cout << endl;
             cout << "\t\t Choose Key: " << flush;
             // do something with actual binding
+            // still gives errors after chosen a key
             char chosenKey = 'x'; // some default value
             cin >> chosenKey;
             keys->insert(make_pair(chosenIndex-1, chosenKey));
