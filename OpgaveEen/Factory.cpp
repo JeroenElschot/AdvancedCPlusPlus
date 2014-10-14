@@ -12,8 +12,8 @@
 Factory::Factory(): Application("Application Menu")
 {
     functions.push_back(new MenuFunction("Say Hello", METHOD(sayHello) ));
+    functions.push_back(new MenuFunction("Calculate something ",METHOD(calc ) ));
    // functions.push_back(new MenuFunction("Quit program",&Factory::quitProgram ));
-    //functions.push_back(new MenuFunction("Calculate something ",&Factory::calc ));
    // functions.push_back(new MenuFunction("Please quit it ",&Factory::realQuit ));
    // functions.push_back(new MenuFunction("Color me", &Factory::changeNiceColor ));
 }

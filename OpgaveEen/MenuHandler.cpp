@@ -1,5 +1,6 @@
 #include "MenuHandler.h"
 
+
 void MenuHandler::showStartMenu() const
 {
     const int ESCAPE = 27;
@@ -8,8 +9,10 @@ void MenuHandler::showStartMenu() const
         system("cls");
 
         cout << "==== Headquarters ====" << endl << endl;
-        cout << "Press l to see the menu" << endl;
         cout << "Press b to bind stuff" << endl;
+
+        // show other functions that were binded here, including sub menus
+
         cout << "Press ESC to quit" << endl;
         cout << endl;
 
@@ -21,12 +24,9 @@ void MenuHandler::showStartMenu() const
         {
             cout << "Program is quiting" << endl;
         }
-        else if(key == 'b')
+        else if (key == 'b')
         {
-        }
-        else if (key == 'l')
-        {
-            showMenu();
+            BindFunctions();
         }
         else
         {
@@ -35,6 +35,52 @@ void MenuHandler::showStartMenu() const
     }
 
     system("cls");
+}
+
+void MenuHandler::BindFunctions() const
+{
+    cout << endl << endl;
+
+    cout << "Available functions" << endl;
+    cout << "Select number to bind" << endl;
+
+    for(unsigned i = 0; i < functions.size(); i++)
+    {
+        cout << "\t" << (i+1) << "\t" << functions[i]->getDescription() << endl;
+    }
+    cout << endl;
+    cout << "\t\tChoose Function: " << flush;
+        unsigned chosenIndex = 0;
+        cin >> chosenIndex;
+        if(chosenIndex == 0)
+        {
+
+        }
+        else if((chosenIndex >= 1) && (chosenIndex <= functions.size()))
+        {
+            cout << endl;
+            cout << "\t\t Choose Key: " << flush;
+            // do something with actual binding
+            char chosenKey = 'x'; // some default value
+            cin >> chosenKey;
+            keys->insert(make_pair(chosenIndex-1, chosenKey));
+            cout << "\t\t Toegevoegd: " << chosenKey << "met functie: " << functions[chosenIndex-1]->getDescription() << endl;
+            system("cls");
+        }
+        else
+        {
+            system("cls");
+        }
+}
+
+void MenuHandler::unbind()
+{
+    // go through the bindings and unbind the chosen ones
+}
+
+void MenuHandler::gosub(int)
+{
+    // go to index of menus
 }
 
 void MenuHandler::showMenu() const

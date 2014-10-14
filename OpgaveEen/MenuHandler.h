@@ -5,24 +5,30 @@
 #include <cstdlib>
 #include <conio.h>
 #include <vector>
+#include <map>
 
 #include "MenuFunction.h"
 
-using namespace std;
-
 class Application;
 class MenuFunction;
+
 
 class MenuHandler
 {
     Application * const appl;
     vector<MenuFunction*> const & functions; // aanbod van applicatie
-    //vector< map<char,MenuFunction*> *>         menus;
+    vector< map<char,MenuFunction*> *>         menus;
+        std::map<int, char> *keys;
+
+    private:
+        //typedef std::map<int, char*> keys; // bind a key to a function index
+
     public:
+
         MenuHandler(Application *app) : appl(app), functions(app->getFunctions()){}
         void showStartMenu() const;
         void showMenu() const;
-        void bind();
+        void BindFunctions() const;
         void unbind();
         void gosub(int);
 
