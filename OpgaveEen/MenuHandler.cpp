@@ -69,8 +69,7 @@ void MenuHandler::BindFunctions() const
             // still gives errors after chosen a key
             char chosenKey = 'x'; // some default value
             cin >> chosenKey;
-            keys->insert(make_pair(chosenIndex-1, chosenKey));
-            cout << "\t\t Toegevoegd: " << chosenKey << "met functie: " << functions[chosenIndex-1]->getDescription() << endl;
+            keys->insert(make_pair(chosenIndex-1, chosenKey) );
             system("cls");
         }
         else

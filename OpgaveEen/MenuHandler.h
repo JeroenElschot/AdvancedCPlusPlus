@@ -18,11 +18,14 @@ class MenuHandler
     Application * const appl;
     vector<MenuFunction*> const & functions; // aanbod van applicatie
     vector< map<char,MenuFunction*> *>         menus;
-    std::map<int, char> *keys; // houd de bindings bij voor de functies en keys
+    map<int, char> *keys; // houd de bindings bij voor de functies en keys
 
     public:
 
-        MenuHandler(Application *app) : appl(app), functions(app->getFunctions()){}
+        MenuHandler(Application *app) : appl(app), functions(app->getFunctions())
+        {
+            keys = new map<int, char>();
+        }
         void showStartMenu() const;
         void showMenu() const;
         void BindFunctions() const;
