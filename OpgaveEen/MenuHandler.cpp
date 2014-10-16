@@ -27,6 +27,7 @@ void MenuHandler::showStartMenu() const
         if(key == ESCAPE)
         {
             cout << "Program is quiting" << endl;
+            break;
         }
         else if (key == 'b')
         {
