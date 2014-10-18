@@ -11,11 +11,21 @@ void MenuHandler::showStartMenu() const
         cout << "==== Headquarters ====" << endl << endl;
         cout << "Press b to bind stuff" << endl;
 
-        // show other functions that were binded here, including sub menus
-        //for(unsigned i = 0; i < keys->size(); i++)
-        //{
-            //do something with iteration
-        //}
+//         show other functions that were binded here, including sub menus
+
+        std::map<int,char>::iterator it;
+        for (std::map<int,char>::iterator it= keys->begin(); it!=keys->end(); ++it)
+        {
+            string functionname = functions[it->first]->getDescription();
+            std::cout << it->second << " => " << functionname << '\n';
+            //
+        }
+
+
+
+
+
+
 
         cout << "Press ESC to quit" << endl;
         cout << endl;
