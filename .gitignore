@@ -2,3 +2,5 @@ OpgaveEen/OpgaveEen.layout
 OpgaveEen/bin/Debug/OpgaveEen.exe
 OpgaveEen/bin/Debug/OpgaveEen.exe
 *.exe
+*.exe
+*.o
