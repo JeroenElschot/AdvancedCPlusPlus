@@ -21,12 +21,6 @@ void MenuHandler::showStartMenu() const
             //
         }
 
-
-
-
-
-
-
         cout << "Press ESC to quit" << endl;
         cout << endl;
 
@@ -45,7 +39,13 @@ void MenuHandler::showStartMenu() const
         }
         else
         {
-
+            for (std::map<int,char>::iterator it= keys->begin(); it!=keys->end(); ++it) // go through all the keys that have a binding
+            {
+                if( it->second == key) // if key is equal to the key of a binding
+                {
+                    (appl->*(functions[it->first]->getFunction())) (); // execute the function
+                }
+            }
         }
     }
 
