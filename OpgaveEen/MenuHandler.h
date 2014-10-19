@@ -30,7 +30,7 @@ class MenuHandler
         void showStartMenu() const;
         void showMenu() const;
         void BindFunctions() const;
-        void unbind();
+        void unBind() const;
         void gosub(int);
         void makeSub() const;
 
