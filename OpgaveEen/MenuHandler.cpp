@@ -10,6 +10,7 @@ void MenuHandler::showStartMenu() const
 
         cout << "==== Headquarters ====" << endl << endl;
         cout << "Press b to bind stuff" << endl;
+        cout << "Press u to unbind stuff" << endl;
 
 //         show other functions that were binded here, including sub menus
 
@@ -36,6 +37,10 @@ void MenuHandler::showStartMenu() const
         else if (key == 'b')
         {
             BindFunctions();
+        }
+        else if(key == 'u')
+        {
+            unBind();
         }
         else
         {
@@ -65,32 +70,72 @@ void MenuHandler::BindFunctions() const
     }
     cout << endl;
     cout << "\t\tChoose Function: " << flush;
-        unsigned chosenIndex = 0;
-        cin >> chosenIndex;
-        if(chosenIndex == 0)
-        {
+    unsigned chosenIndex = 0;
+    cin >> chosenIndex;
+    if(chosenIndex == 0)
+    {
 
-        }
-        else if((chosenIndex >= 1) && (chosenIndex <= functions.size()))
+    }
+    else if((chosenIndex >= 1) && (chosenIndex <= functions.size()))
+    {
+        // do something with actual binding
+        // still gives errors after chosen a key
+
+        char chosenKey; // some default value
+
+        for(;;)
         {
             cout << endl;
             cout << "\t\t Choose Key: " << flush;
-            // do something with actual binding
-            // still gives errors after chosen a key
-            char chosenKey = 'x'; // some default value
+
             cin >> chosenKey;
-            keys->insert(make_pair(chosenIndex-1, chosenKey) );
-            system("cls");
+            if(chosenKey == 'b')
+            {
+                cout << "Cannot bind the bind function" << endl;
+                cout << "Try again" << endl;
+            }
+            else if(chosenKey == 'u')
+            {
+                cout << "Cannot bind the unbind function" << endl;
+                cout << "Try again" << endl;
+            }
+            else
+            {
+                break;
+            }
         }
-        else
-        {
-            system("cls");
-        }
+        keys->insert(make_pair(chosenIndex-1, chosenKey) );
+        system("cls");
+    }
+    else
+    {
+        system("cls");
+    }
 }
 
-void MenuHandler::unbind()
+void MenuHandler::unBind() const
 {
-    // go through the bindings and unbind the chosen ones
+    cout << endl << endl;
+
+    cout << "Select a key you want to unbind" << endl;
+
+    char chosenKey; // some default value
+
+    for(;;)
+    {
+        cout << endl;
+        cout << "\t\t Choose Key: " << flush;
+
+        cin >> chosenKey;
+
+        for (std::map<int,char>::iterator it= keys->begin(); it!=keys->end(); ++it)
+        {
+            keys->erase(it);
+            break;
+        }
+        break;
+    }
+    system("cls");
 }
 
 void MenuHandler::gosub(int)
@@ -100,32 +145,32 @@ void MenuHandler::gosub(int)
 
 void MenuHandler::showMenu() const
 {
-        cout << endl << endl;
+    cout << endl << endl;
 
-        cout << "===== " << appl->getDescription() << " =====" << endl;
+    cout << "===== " << appl->getDescription() << " =====" << endl;
 
-        for(unsigned i = 0; i < functions.size(); i++)
-        {
-            cout << "\t" << (i+1) << "\t" << functions[i]->getDescription() << endl;
-        }
+    for(unsigned i = 0; i < functions.size(); i++)
+    {
+        cout << "\t" << (i+1) << "\t" << functions[i]->getDescription() << endl;
+    }
+    cout << endl;
+
+    cout << "\t\tChoose Action: " << flush;
+    unsigned chosenIndex = 0;
+    cin >> chosenIndex;
+    if(chosenIndex == 0)
+    {
+
+    }
+    else if((chosenIndex >= 1) && (chosenIndex <= functions.size()))
+    {
         cout << endl;
-
-        cout << "\t\tChoose Action: " << flush;
-        unsigned chosenIndex = 0;
-        cin >> chosenIndex;
-        if(chosenIndex == 0)
-        {
-
-        }
-        else if((chosenIndex >= 1) && (chosenIndex <= functions.size()))
-        {
-            cout << endl;
-            (appl->*(functions[chosenIndex-1]->getFunction())) ();
-            system("cls");
-        }
-        else
-        {
-            system("cls");
-        }
+        (appl->*(functions[chosenIndex-1]->getFunction())) ();
+        system("cls");
+    }
+    else
+    {
+        system("cls");
+    }
 }
 
