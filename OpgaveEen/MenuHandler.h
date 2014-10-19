@@ -17,7 +17,7 @@ class MenuHandler
 {
     Application * const appl;
     vector<MenuFunction*> const & functions; // aanbod van applicatie
-    vector< map<char,MenuFunction*> *>         menus;
+    map<char,MenuHandler*> *menus;
     map<int, char> *keys; // houd de bindings bij voor de functies en keys
 
     public:
@@ -25,12 +25,14 @@ class MenuHandler
         MenuHandler(Application *app) : appl(app), functions(app->getFunctions())
         {
             keys = new map<int, char>();
+            menus = new map<char,MenuHandler*>();
         }
         void showStartMenu() const;
         void showMenu() const;
         void BindFunctions() const;
         void unbind();
         void gosub(int);
+        void makeSub() const;
 
 };
 

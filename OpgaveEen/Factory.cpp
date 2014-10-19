@@ -25,6 +25,7 @@ void Factory::sayHello()
     getch();
 }
 
+
 void Factory::quitProgram()
 {
     cout << "Not quiting anything, keep on playing" << endl;

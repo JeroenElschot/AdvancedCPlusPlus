@@ -10,15 +10,21 @@ void MenuHandler::showStartMenu() const
 
         cout << "==== Headquarters ====" << endl << endl;
         cout << "Press b to bind stuff" << endl;
-
-//         show other functions that were binded here, including sub menus
+        cout << "Press m to make a submenu" << endl;
 
         std::map<int,char>::iterator it;
+        std::map<char,MenuHandler*>::iterator itmenu;
         for (std::map<int,char>::iterator it= keys->begin(); it!=keys->end(); ++it)
         {
             string functionname = functions[it->first]->getDescription();
             std::cout << it->second << " => " << functionname << '\n';
-            //
+        }
+
+       for (std::map<char,MenuHandler*>::iterator itmenu= menus->begin(); itmenu!=menus->end(); ++itmenu)
+        {
+            MenuHandler *mh = itmenu->second;
+            mh->showStartMenu();
+            std::cout << itmenu->second << " submenu " << '\n';
         }
 
         cout << "Press ESC to quit" << endl;
@@ -37,6 +43,10 @@ void MenuHandler::showStartMenu() const
         {
             BindFunctions();
         }
+        else if (key == 'm')
+        {
+            makeSub();
+        }
         else
         {
             for (std::map<int,char>::iterator it= keys->begin(); it!=keys->end(); ++it) // go through all the keys that have a binding
@@ -51,6 +61,20 @@ void MenuHandler::showStartMenu() const
 
     system("cls");
 }
+
+void MenuHandler::makeSub() const
+{
+    cout << "You have created a new sub menu" << endl;
+    cout << "press a key to bind this new menu" << endl;
+    char chosenKey = 'x'; // some default value
+    cin >> chosenKey;
+
+    MenuHandler *newMenu = new MenuHandler(appl);
+    menus->insert(make_pair(chosenKey, newMenu) );
+
+    system("cls");
+}
+
 
 void MenuHandler::BindFunctions() const
 {
