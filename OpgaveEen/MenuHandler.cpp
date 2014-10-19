@@ -101,9 +101,27 @@ void MenuHandler::BindFunctions() const
             }
             else
             {
-                break;
+                bool keyExists = false;
+                for (std::map<int,char>::iterator it= keys->begin(); it!=keys->end(); ++it) // go through all the keys that have a binding
+                {
+                    if( it->second == chosenKey) // if key is equal to the key of a binding
+                    {
+                        keys->erase(it);
+                        keyExists = true;
+                        break;
+                    }
+                }
+
+                if(keyExists){
+                    cout << "Binding already exists and will be overrided" << endl;
+                    break;
+                } else {
+                    break;
+                }
             }
         }
+
+        cout << "erase" << endl;
         keys->insert(make_pair(chosenIndex-1, chosenKey) );
         system("cls");
     }
