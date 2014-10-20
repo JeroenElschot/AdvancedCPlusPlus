@@ -73,7 +73,7 @@ void MenuHandler::makeSub() const
 {
     cout << "You have created a new sub menu" << endl;
     cout << "press a key to bind this new menu" << endl;
-    char chosenKey = 'x'; // some default value
+    char chosenKey; // some default value
     cin >> chosenKey;
 
     MenuHandler *newMenu = new MenuHandler(appl);

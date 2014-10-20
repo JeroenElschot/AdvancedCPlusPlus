@@ -16,9 +16,9 @@ class MenuFunction;
 class MenuHandler
 {
     Application * const appl;
-    vector<MenuFunction*> const & functions; // aanbod van applicatie
+    vector<MenuFunction*> const & functions;
     map<char,MenuHandler*> *menus;
-    map<int, char> *keys; // houd de bindings bij voor de functies en keys
+    map<int, char> *keys;
 
     public:
 
