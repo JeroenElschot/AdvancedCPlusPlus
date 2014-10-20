@@ -15,6 +15,7 @@ void MenuHandler::showStartMenu() const
 
 //         show other functions that were binded here, including sub menus
 
+
         std::map<int,char>::iterator it;
         std::map<char,MenuHandler*>::iterator itmenu;
         for (std::map<int,char>::iterator it= keys->begin(); it!=keys->end(); ++it)
@@ -23,14 +24,13 @@ void MenuHandler::showStartMenu() const
             std::cout << it->second << " => " << functionname << '\n';
         }
 
-       for (std::map<char,MenuHandler*>::iterator itmenu= menus->begin(); itmenu!=menus->end(); ++itmenu)
+        for (std::map<char,MenuHandler*>::iterator itmenu= menus->begin(); itmenu!=menus->end(); ++itmenu)
         {
-            MenuHandler *mh = itmenu->second;
-            mh->showStartMenu();
-            std::cout << itmenu->second << " submenu " << '\n';
+            //MenuHandler *mh = itmenu->second;
+            std::cout << itmenu->first << " => submenu " << '\n';
         }
 
-        cout << "Press ESC to quit" << endl;
+        cout << "Press ESC to go back or exit" << endl;
         cout << endl;
 
         char key = getch();
@@ -56,13 +56,28 @@ void MenuHandler::showStartMenu() const
         }
         else
         {
-            for (std::map<int,char>::iterator it= keys->begin(); it!=keys->end(); ++it) // go through all the keys that have a binding
+            bool ismenu = false;
+            for (std::map<char,MenuHandler*>::iterator itmenu= menus->begin(); itmenu!=menus->end(); ++itmenu)
             {
-                if( it->second == key) // if key is equal to the key of a binding
+                if(itmenu->first == key) // if key is equal to an item in menus, go to that menu
                 {
-                    (appl->*(functions[it->first]->getFunction())) (); // execute the function
+                    MenuHandler *mh = itmenu->second;
+                    mh->showStartMenu();
+                    ismenu = true;
                 }
             }
+
+            if(ismenu != true) // if the key is not in a menu, check if the key belongs to a function
+            {
+                for (std::map<int,char>::iterator it= keys->begin(); it!=keys->end(); ++it) // go through all the keys that have a binding
+                {
+                    if( it->second == key) // if key is equal to the key of a binding
+                    {
+                        (appl->*(functions[it->first]->getFunction())) (); // execute the function
+                    }
+                }
+            }
+
         }
     }
 
