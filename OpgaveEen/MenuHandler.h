@@ -18,13 +18,13 @@ class MenuHandler
     Application * const appl;
     vector<MenuFunction*> const & functions;
     map<char,MenuHandler*> *menus;
-    map<int, char> *keys;
+    map<char, int> *keys;
 
     public:
 
         MenuHandler(Application *app) : appl(app), functions(app->getFunctions())
         {
-            keys = new map<int, char>();
+            keys = new map<char, int>();
             menus = new map<char,MenuHandler*>();
         }
         void showStartMenu() const;

@@ -18,10 +18,10 @@ void MenuHandler::showStartMenu() const
 
         std::map<int,char>::iterator it;
         std::map<char,MenuHandler*>::iterator itmenu;
-        for (std::map<int,char>::iterator it= keys->begin(); it!=keys->end(); ++it)
+        for (std::map<char,int>::iterator it= keys->begin(); it!=keys->end(); ++it)
         {
-            string functionname = functions[it->first]->getDescription();
-            std::cout << it->second << " => " << functionname << '\n';
+            string functionname = functions[it->second]->getDescription();
+            std::cout << it->first << " => " << functionname << '\n';
         }
 
         for (std::map<char,MenuHandler*>::iterator itmenu= menus->begin(); itmenu!=menus->end(); ++itmenu)
@@ -69,11 +69,11 @@ void MenuHandler::showStartMenu() const
 
             if(ismenu != true) // if the key is not in a menu, check if the key belongs to a function
             {
-                for (std::map<int,char>::iterator it= keys->begin(); it!=keys->end(); ++it) // go through all the keys that have a binding
+                for (std::map<char,int>::iterator it= keys->begin(); it!=keys->end(); ++it) // go through all the keys that have a binding
                 {
-                    if( it->second == key) // if key is equal to the key of a binding
+                    if( it->first == key) // if key is equal to the key of a binding
                     {
-                        (appl->*(functions[it->first]->getFunction())) (); // execute the function
+                        (appl->*(functions[it->second]->getFunction())) (); // execute the function
                     }
                 }
             }
@@ -86,13 +86,25 @@ void MenuHandler::showStartMenu() const
 
 void MenuHandler::makeSub() const
 {
-    cout << "You have created a new sub menu" << endl;
     cout << "press a key to bind this new menu" << endl;
     char chosenKey; // some default value
     cin >> chosenKey;
 
-    MenuHandler *newMenu = new MenuHandler(appl);
-    menus->insert(make_pair(chosenKey, newMenu) );
+    bool keyExists = false;
+    for (std::map<char,int>::iterator it= keys->begin(); it!=keys->end(); ++it) // go through all the keys that have a binding
+    {
+        if( it->first == chosenKey) // if key is equal to the key of a binding
+        {
+            keyExists = true;
+            break;
+        }
+    }
+    if(!keyExists) // if key not exists, bind menu to it
+    {
+        MenuHandler *newMenu = new MenuHandler(appl);
+        menus->insert(make_pair(chosenKey, newMenu) );
+        cout << "You have created a new sub menu" << endl;
+    }
 
     system("cls");
 }
@@ -143,9 +155,9 @@ void MenuHandler::BindFunctions() const
             else
             {
                 bool keyExists = false;
-                for (std::map<int,char>::iterator it= keys->begin(); it!=keys->end(); ++it) // go through all the keys that have a binding
+                for (std::map<char,int>::iterator it= keys->begin(); it!=keys->end(); ++it) // go through all the keys that have a binding
                 {
-                    if( it->second == chosenKey) // if key is equal to the key of a binding
+                    if( it->first == chosenKey) // if key is equal to the key of a binding
                     {
                         keys->erase(it);
                         keyExists = true;
@@ -163,7 +175,7 @@ void MenuHandler::BindFunctions() const
         }
 
         cout << "erase" << endl;
-        keys->insert(make_pair(chosenIndex-1, chosenKey) );
+        keys->insert(make_pair(chosenKey,chosenIndex-1) );
         system("cls");
     }
     else
@@ -187,19 +199,24 @@ void MenuHandler::unBind() const
 
         cin >> chosenKey;
 
-        for (std::map<int,char>::iterator it= keys->begin(); it!=keys->end(); ++it)
+        for (std::map<char,int>::iterator it= keys->begin(); it!=keys->end(); ++it)
         {
-            keys->erase(it);
-            break;
+            if(it->first == chosenKey) // if key is equal to the key of the iterator key , erase it
+            {
+                keys->erase(it);
+            }
         }
+        for (std::map<char,MenuHandler*>::iterator itmenu= menus->begin(); itmenu!=menus->end(); ++itmenu)
+        {
+            if(itmenu->first == chosenKey) // same way as the keys
+            {
+                menus->erase(itmenu);
+            }
+        }
+
         break;
     }
     system("cls");
-}
-
-void MenuHandler::gosub(int)
-{
-    // go to index of menus
 }
 
 void MenuHandler::showMenu() const
