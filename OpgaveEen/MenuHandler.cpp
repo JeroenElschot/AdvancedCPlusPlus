@@ -13,21 +13,18 @@ void MenuHandler::showStartMenu() const
         cout << "Press m to make a submenu" << endl;
         cout << "Press u to unbind stuff" << endl;
 
-//         show other functions that were binded here, including sub menus
-
-
+        // show all menus and functions that have a binding
         std::map<int,char>::iterator it;
         std::map<char,MenuHandler*>::iterator itmenu;
         for (std::map<char,int>::iterator it= keys->begin(); it!=keys->end(); ++it)
         {
             string functionname = functions[it->second]->getDescription();
-            std::cout << it->first << " => " << functionname << '\n';
+            std::cout << it->first << " => " << functionname << '\n'; // show the key and function name, this creates a list to the user
         }
 
         for (std::map<char,MenuHandler*>::iterator itmenu= menus->begin(); itmenu!=menus->end(); ++itmenu)
         {
-            //MenuHandler *mh = itmenu->second;
-            std::cout << itmenu->first << " => submenu " << '\n';
+            std::cout << itmenu->first << " => submenu " << '\n'; // show the key and ass => submenu to it so you know it is a submenu
         }
 
         cout << "Press ESC to go back or exit" << endl;
@@ -37,6 +34,7 @@ void MenuHandler::showStartMenu() const
 
         cout << "gekozen:" << key << endl;
 
+        //check for default functions
         if(key == ESCAPE)
         {
             cout << "Program is quiting" << endl;
@@ -54,6 +52,7 @@ void MenuHandler::showStartMenu() const
         {
             unBind();
         }
+        //check for other functions
         else
         {
             bool ismenu = false;
@@ -89,23 +88,30 @@ void MenuHandler::makeSub() const
     cout << "press a key to bind this new menu" << endl;
     char chosenKey; // some default value
     cin >> chosenKey;
-
     bool keyExists = false;
-    for (std::map<char,int>::iterator it= keys->begin(); it!=keys->end(); ++it) // go through all the keys that have a binding
+
+    if(chosenKey == 'b' || chosenKey == 'u' || chosenKey == 'm') // if any of these keys is chosen, let the user try again
     {
-        if( it->first == chosenKey) // if key is equal to the key of a binding
+        keyExists = true;
+    }
+    else
+    {
+        for (std::map<char,int>::iterator it= keys->begin(); it!=keys->end(); ++it) // go through all the keys that have a binding
         {
-            keyExists = true;
-            break;
+            if( it->first == chosenKey) // if key is equal to the key of a binding
+            {
+                keyExists = true;
+                break;
+            }
+        }
+
+        if(!keyExists) // if key not exists, bind menu to it
+        {
+            MenuHandler *newMenu = new MenuHandler(appl);
+            menus->insert(make_pair(chosenKey, newMenu) );
+            cout << "You have created a new sub menu" << endl;
         }
     }
-    if(!keyExists) // if key not exists, bind menu to it
-    {
-        MenuHandler *newMenu = new MenuHandler(appl);
-        menus->insert(make_pair(chosenKey, newMenu) );
-        cout << "You have created a new sub menu" << endl;
-    }
-
     system("cls");
 }
 
@@ -131,9 +137,6 @@ void MenuHandler::BindFunctions() const
     }
     else if((chosenIndex >= 1) && (chosenIndex <= functions.size()))
     {
-        // do something with actual binding
-        // still gives errors after chosen a key
-
         char chosenKey; // some default value
 
         for(;;)
@@ -142,14 +145,9 @@ void MenuHandler::BindFunctions() const
             cout << "\t\t Choose Key: " << flush;
 
             cin >> chosenKey;
-            if(chosenKey == 'b')
+            if(chosenKey == 'b' || chosenKey == 'u' || chosenKey == 'm') // if any of these keys is chosen, let the user try again
             {
-                cout << "Cannot bind the bind function" << endl;
-                cout << "Try again" << endl;
-            }
-            else if(chosenKey == 'u')
-            {
-                cout << "Cannot bind the unbind function" << endl;
+                cout << "Cannot bind using this key" << endl;
                 cout << "Try again" << endl;
             }
             else
@@ -165,10 +163,13 @@ void MenuHandler::BindFunctions() const
                     }
                 }
 
-                if(keyExists){
+                if(keyExists)
+                {
                     cout << "Binding already exists and will be overrided" << endl;
                     break;
-                } else {
+                }
+                else
+                {
                     break;
                 }
             }

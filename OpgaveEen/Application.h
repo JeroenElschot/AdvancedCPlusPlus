@@ -28,9 +28,6 @@ public:
     {
         return functions;
     }
-
-
-
 };
 
 #endif // APPLICATION_H
