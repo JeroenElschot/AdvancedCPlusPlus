@@ -24,3 +24,32 @@ Bij de beoordeling van deze opdracht wordt vooral gelet op het correct en optima
 van C++ features zoals, classes, inheritance, member initialization, const, reference,
 operatoren, templates, generieke algoritmes en de optimale taakverdeling tussen classes,
 methodes en gewone functies. Een “java stijl” oplossing wordt hier zeker niet geaccepteerd.
+
+
+aapak:
+main --> definieer path
+
+
+object
+- template container met daarin de sorteer functies of iets dergelijks
+
+
+struct dirent *ent;
+    DIR *dir;
+    if ((dir = opendir ("students")) != NULL) {
+      /* print all the files and directories within directory */
+      while ((ent = readdir (dir)) != NULL) {
+        printf ("%s\n", ent->d_name);
+      }
+      closedir (dir);
+    } else {
+      /* could not open directory */
+      perror ("");
+      return 0;
+    }
+
+    Student *s = new Student("Olthuis", "Richard", "Wierden", "Man", "MSECUd");
+
+
+
+

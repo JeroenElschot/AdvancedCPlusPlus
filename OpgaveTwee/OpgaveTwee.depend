@@ -1,0 +1,44 @@
+# depslib dependency file v1.0
+1413821756 source:f:\school\vierde jaar\c++\advancedcplusplus\opgavetwee\main.cpp
+	<iostream>
+	"Student.h"
+	"Application.h"
+
+1414147035 source:f:\school\vierde jaar\c++\advancedcplusplus\opgavetwee\student.cpp
+	"Student.h"
+
+1414185461 f:\school\vierde jaar\c++\advancedcplusplus\opgavetwee\student.h
+	<iostream>
+
+1414316876 source:f:\school\vierde jaar\c++\advancedcplusplus\opgavetwee\application.cpp
+	<conio.h>
+	<iostream>
+	<fstream>
+	<dirent.h>
+	<vector>
+	<algorithm>
+	<string>
+	"Application.h"
+	"FileReader.h"
+
+1414313546 f:\school\vierde jaar\c++\advancedcplusplus\opgavetwee\application.h
+	<iostream>
+	<vector>
+	"Student.h"
+
+1413919610 f:\school\vierde jaar\c++\advancedcplusplus\opgavetwee\filereader.h
+	<iostream>
+	<vector>
+	<fstream>
+	"Student.h"
+
+1414185113 source:f:\school\vierde jaar\c++\advancedcplusplus\opgavetwee\filereader.cpp
+	"FileReader.h"
+	"Student.h"
+	<sstream>
+	<vector>
+	<fstream>
+	<cstring>
+	<string.h>
+	<algorithm>
+

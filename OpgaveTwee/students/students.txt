@@ -1,0 +1,8 @@
+Olthuis,Richard,Wierden,Man,MSECUd
+Olthuis,Ron,Almelo,Man,MSECUb
+Elschot,Jeroen,Eibergen,Man,MSECUa
+Olthuis,Jeroen,Almelo,Man,MSECUd
+Elschot,Richard,Leeuwarden,Vrouw,MSECUa
+Elschotje,Lies,Amsterdam,Vrouw,MSECUc
+Elschotje,Lies,Amsterdam,Vrouw,MSECUc
+Erik,Tester,Rijssen,Vrouw,MSECUe
