@@ -73,7 +73,7 @@ public:
 
     bool operator<(const Student &student) const
     {
-        return surname < student.classID;
+        return surname < student.surname;
     }
 
     bool operator==(const Student &student) const

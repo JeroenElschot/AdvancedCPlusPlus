@@ -22,7 +22,14 @@
 		<Klas>MSECUa</Klas>
 	 </Student>
 	 <Student>
-		<Name>Ron</Name>
+		<Name>Bram</Name>
+		<Achternaam>Olthuis</Achternaam>
+		<Plaats>Almelo</Plaats>
+		<Geslacht>Man</Geslacht>
+		<Klas>MSECUb</Klas>
+	 </Student>
+	 <Student>
+		<Name>Brammie</Name>
 		<Achternaam>Olthuis</Achternaam>
 		<Plaats>Almelo</Plaats>
 		<Geslacht>Man</Geslacht>

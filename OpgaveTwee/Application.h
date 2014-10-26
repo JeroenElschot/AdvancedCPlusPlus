@@ -29,7 +29,7 @@ class Application
         bool fillStudents();
         void removeDuplicates();
         void eachStudent (Student student);
-        void writeToFile();
+        void exportXML();
 
         void addStudent(Student student)
         {

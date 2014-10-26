@@ -73,7 +73,7 @@ void Application::showMenu()
             sortedByClassCounter = students.size();
             cout << endl << "\tTotal Students (Sorted by Class): " << sortedByClassCounter << endl << endl;
 
-            writeToFile();
+            exportXML();
             cout << "Transformed to file: formatted.xml" << endl;
         }
     }
@@ -118,7 +118,7 @@ bool Application::fillStudents()
     }
 }
 
-void Application::writeToFile()
+void Application::exportXML()
 {
     fstream outfile("formatted.xml");
     outfile << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" << endl;

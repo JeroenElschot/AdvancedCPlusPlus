@@ -1,5 +1,5 @@
 Olthuis,Richard,Wierden,Man,MSECUd
-Olthuis,Ron,Almelo,Man,MSECUb
+Olthuis,Bram,Almelo,Man,MSECUb
 Elschot,Jeroen,Eibergen,Man,MSECUa
 Olthuis,Jeroen,Almelo,Man,MSECUd
 Elschot,Richard,Leeuwarden,Vrouw,MSECUa
