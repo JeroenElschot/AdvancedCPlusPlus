@@ -2,3 +2,20 @@
 1414330828 source:/Users/richardolt/Documents/Code/School/C++/AdvancedCPlusPlus/OpdrachtDrie/main.cpp
 	<iostream>
 
+1414353983 source:f:\school\vierde jaar\c++\advancedcplusplus\opdrachtdrie\binarytree.cpp
+	"BinaryTree.h"
+
+1414441537 f:\school\vierde jaar\c++\advancedcplusplus\opdrachtdrie\binarytree.h
+	<ostream>
+	"SBTNode.h"
+
+1414442166 source:f:\school\vierde jaar\c++\advancedcplusplus\opdrachtdrie\main.cpp
+	<ostream>
+	<iostream>
+	"main.h"
+	"BinaryTree.h"
+
+1414354352 f:\school\vierde jaar\c++\advancedcplusplus\opdrachtdrie\main.h
+
+1414442017 f:\school\vierde jaar\c++\advancedcplusplus\opdrachtdrie\sbtnode.h
+
