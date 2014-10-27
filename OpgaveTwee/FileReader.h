@@ -9,19 +9,18 @@ using namespace std;
 
 class FileReader
 {
-    private:
-        string filePath;
-    public:
-        FileReader(string f): filePath(f)
-        {
+private:
+    string filePath;
+public:
+    FileReader(string f): filePath(f)
+    {
 
-        }
+    }
 
-        ~FileReader();
+    ~FileReader();
 
-        string getFilePath();
-        vector<Student> readFile();
-
+    string getFilePath();
+    vector<Student> readFile();
 };
 
 #endif // FILEREADER_H

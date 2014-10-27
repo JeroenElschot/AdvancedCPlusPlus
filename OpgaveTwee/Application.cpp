@@ -42,13 +42,14 @@ Iterator Unique(Iterator first, Iterator last)
     return last;
 }
 
+// shows the menu for the application ( press T to transform )
 void Application::showMenu()
 {
     cout << "Application started in directory: " << filePath << endl << endl;
     cout << "Press the key 't' to start the transformation" << endl << endl;
 
-    char pressed = getch();
-    if(pressed == 't')
+    char pressed = getch(); // get the pressed key
+    if(pressed == 't') // only the t works
     {
         if(Application::fillStudents())
         {
@@ -79,6 +80,7 @@ void Application::showMenu()
     }
 }
 
+// fill all the students from the txt file to student objects
 bool Application::fillStudents()
 {
     string filePathString = getFilePath();
@@ -118,12 +120,14 @@ bool Application::fillStudents()
     }
 }
 
+//export all the students to a file that will be saved as an XML file
 void Application::exportXML()
 {
     fstream outfile("formatted.xml");
     outfile << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" << endl;
     outfile << "<School>" << endl;
-    for( std::vector<Student>::iterator i = students.begin(); i != students.end(); ++i){
+    for( std::vector<Student>::iterator i = students.begin(); i != students.end(); ++i)
+    {
         outfile << "\t <Student>" << endl;
         outfile << "\t\t<Name>" << i->getSurname() << "</Name>" << endl;
         outfile << "\t\t<Achternaam>" << i->getName() << "</Achternaam>" << endl;
