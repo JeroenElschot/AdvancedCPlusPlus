@@ -1,5 +1,4 @@
 #include <ostream>
-
 #include "SBTNode.h"
 #ifndef BINARYTREE_H
 #define BINARYTREE_H
@@ -21,52 +20,67 @@ public:
 
     };
 
-    void insertAtTree(T &value){
-        insert(root,NULL,value);
+    void insertAtTree(T &value)
+    {
+        SBTNode<T> *fn = find(root, value);
+        if(fn == NULL){
+            insert(root,NULL,value);
+        }
     }
 
-    bool empty(){
+    bool empty()
+    {
         return root == NULL;
     }
 
-    bool erase(T &value){
+    bool erase(T &value)
+    {
         return remove(root, value);
     }
 
-    void clear(){
+    void clear()
+    {
         destroy(root);
     };
 
-    int getSize() {
-       return size(root);
+    int getSize()
+    {
+        return size(root);
     };
 
-    void prettyPrint(){
+    void prettyPrint()
+    {
         print(root);
     };
 
-    bool operator<(BinaryTree<T> &value){
+    bool operator<(BinaryTree<T> &value)
+    {
         return (root->data < value.first()->data);
     }
 
-    void operator= (BinaryTree<T> &value){
+    void operator= (BinaryTree<T> &value)
+    {
         equals(root,value.first());
     };
 
-    SBTNode<T>*& first(){
+    SBTNode<T>*& first()
+    {
         return root;
     }
 
-protected:
+protected: // functions need to be virtual if inheritance is used
 
     SBTNode<T> *root;
 
-    SBTNode<T> getRoot(){
+    SBTNode<T> getRoot()
+    {
         return root;
     }
 
-    void equals(SBTNode<T>*& node, SBTNode<T>* value){
-        if(value != NULL){
+    void equals(SBTNode<T>*& node, SBTNode<T>* value)
+    {
+        if(value != NULL)
+        {
             node = new SBTNode<T>();
             *node = *value;
             if(value->left != NULL)
@@ -76,8 +90,10 @@ protected:
         }
     };
 
-    void destroy(SBTNode<T>* node){
-        if(node != NULL){
+    void destroy(SBTNode<T>* node)
+    {
+        if(node != NULL)
+        {
             destroy(node->left);
             destroy(node->right);
             delete node;
@@ -88,18 +104,24 @@ protected:
 
     void insert(SBTNode<T> *&node, SBTNode<T> *parent, T &value)
     {
-        if(node == NULL){
+        if(node == NULL)
+        {
             node = new SBTNode<T>();
             *node = value;
             node->parent = parent;
-        } else if(value < node->data){
+        }
+        else if(value < node->data)
+        {
             insert(node->left, node,value);
-        } else {
+        }
+        else
+        {
             insert(node->right, node, value);
         }
     };
 
-    SBTNode<T>* find(SBTNode<T> *node, T &value){
+    SBTNode<T>* find(SBTNode<T> *&node, T &value)
+    {
         if(node == NULL)
             return NULL;
         else if(value == node->data)
@@ -110,40 +132,56 @@ protected:
             return find(node->right, value);
     };
 
-    bool remove(SBTNode<T> *node, T &value){
+    bool remove(SBTNode<T> *node, T &value)
+    {
         SBTNode<T> *fn = find(node, value);
 
-        if(fn == NULL){
+        if(fn == NULL)
+        {
             return false;
-        } else {
+        }
+        else
+        {
             SBTNode<T> *parent = fn->parent;
             bool left = false;
             if(parent->left == fn)
                 left = true;
-            if(fn->left != NULL && fn->right != NULL){
-                if(parent->left == NULL || parent->right == NULL){
-
-                } else {
-                    if(left){
+            if(fn->left != NULL && fn->right != NULL)
+            {
+                if(parent->left == NULL || parent->right == NULL)
+                {
+                }
+                else
+                {
+                    if(left)
+                    {
                         parent->left = fn->left;
-                    } else {
+                    }
+                    else
+                    {
                         parent->right = fn->left;
                     }
                     T data = fn->right->data;
                     delete fn;
                     insert(root,NULL,data);
                 }
-            } else if(fn->left != NULL){
+            }
+            else if(fn->left != NULL)
+            {
                 if(left)
                     parent->left = fn->left;
                 else
                     parent->right = fn->left;
-            } else if(fn->right != NULL){
+            }
+            else if(fn->right != NULL)
+            {
                 if(left)
                     parent->left = fn->right;
                 else
                     parent->right = fn->right;
-            } else {
+            }
+            else
+            {
                 if(left)
                     parent->left = NULL;
                 else
@@ -153,143 +191,156 @@ protected:
         };
     };
 
-    int size(SBTNode<T> *&myRoot) const {
-       if(!myRoot) {
+    int size(SBTNode<T> *&myRoot) const
+    {
+        if(!myRoot)
+        {
             return 0;
-       } else {
-            return size(myRoot->left) + 1 + size(myRoot->right);
+        }
+        else
+        {
+            return size(myRoot->left) + 1 + size(myRoot->right); // current + 1
         }
     };
 
     void print(SBTNode<T> *&myRoot)
     {
-        if(myRoot){
-            cout <<myRoot->data << endl;
+        if(myRoot)
+        {
             print(myRoot->left);
             print(myRoot->right);
+            cout << myRoot->data << endl;
         }
     };
 
-    //iterator
+
+public:
+    class iterator
+    {
+
+    private:
+        SBTNode<T>* current;
+        BinaryTree* tree;
+
     public:
-        class iterator {
 
-      private:
-	SBTNode<T>* _current; 	//pointer to current node
-	BinaryTree* _tree;	//pointer to tree I belong to
+        iterator(SBTNode<T>* c = NULL, BinaryTree* t = NULL) : current(c), tree(t) {}
 
-      public:
+        iterator(const iterator& other) : current(other.current), tree(other.tree) {}
 
-	//constructor for iterator
-	iterator(SBTNode<T>* c = NULL, BinaryTree* t = NULL) : _current(c), _tree(t) {}
+        T& operator*()
+        {
+            return current->data;
+        }
 
-	//copy constructor
-	iterator(const iterator& other) : _current(other._current), _tree(other._tree) {}
+        const T& operator*() const
+        {
+            return current->data;
+        }
 
-	//returns const reference to data
-	T& operator*() const {
-	  return _current->data;
-	}
+        T* operator->()
+        {
+            return &(current->data);
+        }
 
-	//returns const pointer to data
-	T* operator->() const {
-	  return &(_current->data);
-	}
+        const T* operator->() const
+        {
+            return &(current->data);
+        }
 
-	//Returns an interator to the left child of the iterator
-	iterator left() {
-	  return iterator(_current->left, _tree);
-	}
+        iterator left()
+        {
+            return iterator(current->left, tree);
+        }
 
-	//Returns an interator to the right child of the iterator
-	iterator right() {
-	  return iterator(_current->right, _tree);
-	}
+        iterator right()
+        {
+            return iterator(current->right, tree);
+        }
 
-	//Returns an iterator to the parent
-	iterator up() {
-	  return iterator(_current->parent, _tree);
-	}
+        iterator up()
+        {
+            return iterator(current->parent, tree);
+        }
 
-	//Returns iterator to next node in inorder traversal - it++
-	iterator operator++() {
+        iterator operator++()
+        {
 
-	  //If there is a right child, go right, then left as much as possible
-	  if (hasRightChild()) {
-	    *this = right();
-	    //_current = _current->_right;
-	    while (hasLeftChild())
-	      *this = left();
-	  }
-	  else { //go up as long as we're the right child, then up one more
-	    while (!isRoot() && (up().right() == *this))
-	      *this = up();
-	    *this = up();
-	  }
-	  return *this;
-	}
+            if (hasRightChild())
+            {
+                *this = right();
+                while (hasLeftChild())
+                    *this = left();
+            }
+            else
+            {
+                while (!isRoot() && (up().right() == *this))
+                    *this = up();
+                *this = up();
+            }
+            return *this;
+        }
 
-	iterator erase(){
+        iterator erase(iterator it)
+        {
+            delete this;
+        }
 
-	}
+        iterator operator++(int dummy)
+        {
+            iterator temp = *this;
+            if (hasRightChild())
+            {
+                *this = right();
+                while (hasLeftChild())
+                    *this = left();
+            }
+            else
+            {
+                while (!isRoot() && (up().right() == *this))
+                    *this = up();
+                *this = up();
+            }
+            return temp;
+        }
 
-	iterator operator++(int dummy) {
-	  iterator temp = *this;
-          if (hasRightChild()) {
-            *this = right();
-            while (hasLeftChild())
-              *this = left();
-          }
-          else {
-            while (!isRoot() && (up().right() == *this))
-              *this = up();
-            *this = up();
-          }
-	  return temp;
-	}
+        bool isRoot()
+        {
+            return (current == tree->root);
+        }
 
+        bool operator==(const iterator& other)
+        {
+            return (current == other.current) && (tree == other.tree);
+        }
 
-	//Returns true if the iterator points to the root
-	bool isRoot() {
-	  return (_current == _tree->root);
-	}
+        bool operator!=(const iterator& other)
+        {
+            return (current != other.current) || (tree != other.tree);
+        }
 
-	//Returns true if the iterator points to a leaf node
-	bool isLeaf() {
-	  return (_current->_left == NULL) && (_current->_right == NULL);
-	}
+        bool hasLeftChild()
+        {
+            return current->left != NULL;
+        }
 
-	//Returns true if the iterators point to the same thing
-	bool operator==(const iterator& other) {
-	  return (_current == other._current) && (_tree == other._tree);
-	}
-
-	//Returns true if the 2 iterators are NOT equal
-	bool operator!=(const iterator& other) {
-	  return (_current != other._current) || (_tree != other._tree);
-	}
-
-	//Returns true if the iterator has a left child
-	bool hasLeftChild() {
-	  return _current->left != NULL;
-	}
-
-	//Returns true if the iterator has a right child
-	 bool hasRightChild() {
-	  return _current->right != NULL;
-	}
+        bool hasRightChild()
+        {
+            return current->right != NULL;
+        }
 
     };
 
-    iterator begin(){
-        SBTNode<T>* current = root;
+    iterator begin()
+    {
+        SBTNode<T>* theCurrent = root;
+        return iterator(theCurrent,this);
+    }
 
-        return iterator(current,this);
-	}
-
-	iterator end(){
+    iterator end()
+    {
         return iterator(NULL, this);
-	}
+    }
 
 };
 

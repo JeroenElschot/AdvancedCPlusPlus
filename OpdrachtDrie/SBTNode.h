@@ -24,6 +24,10 @@ public:
         parent = NULL;
         left = NULL;
         right = NULL;
+
+        delete parent;
+        delete left;
+        delete right;
     };
 
     void operator=(const SBTNode<T> &value){

@@ -5,17 +5,17 @@
 1414353983 source:f:\school\vierde jaar\c++\advancedcplusplus\opdrachtdrie\binarytree.cpp
 	"BinaryTree.h"
 
-1414441537 f:\school\vierde jaar\c++\advancedcplusplus\opdrachtdrie\binarytree.h
+1414744536 f:\school\vierde jaar\c++\advancedcplusplus\opdrachtdrie\binarytree.h
 	<ostream>
 	"SBTNode.h"
 
-1414442166 source:f:\school\vierde jaar\c++\advancedcplusplus\opdrachtdrie\main.cpp
+1414744448 source:f:\school\vierde jaar\c++\advancedcplusplus\opdrachtdrie\main.cpp
 	<ostream>
 	<iostream>
 	"main.h"
 	"BinaryTree.h"
 
-1414354352 f:\school\vierde jaar\c++\advancedcplusplus\opdrachtdrie\main.h
+1414442268 f:\school\vierde jaar\c++\advancedcplusplus\opdrachtdrie\main.h
 
-1414442017 f:\school\vierde jaar\c++\advancedcplusplus\opdrachtdrie\sbtnode.h
+1414529662 f:\school\vierde jaar\c++\advancedcplusplus\opdrachtdrie\sbtnode.h
 
