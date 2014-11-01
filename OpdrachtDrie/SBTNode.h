@@ -2,7 +2,8 @@
 #define SBTNODE_H
 
 template<class T>
-class SBTNode {
+class SBTNode
+{
 public:
 
     T data;
@@ -10,17 +11,20 @@ public:
     SBTNode *left;
     SBTNode *right;
 
-    SBTNode(){
+    SBTNode()
+    {
         parent = NULL;
         left = NULL;
         right = NULL;
     };
 
-    SBTNode(T &value){
+    SBTNode(T &value)
+    {
         data = value;
     }
 
-    ~SBTNode(){
+    ~SBTNode()
+    {
         parent = NULL;
         left = NULL;
         right = NULL;
@@ -30,7 +34,8 @@ public:
         delete right;
     };
 
-    void operator=(const SBTNode<T> &value){
+    void operator=(const SBTNode<T> &value)
+    {
         data = value.data;
     };
 

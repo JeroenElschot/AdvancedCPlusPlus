@@ -1,4 +1,5 @@
 #include <ostream>
+#include <iomanip>      // std::setw for nice printing of the tree
 #include "SBTNode.h"
 #ifndef BINARYTREE_H
 #define BINARYTREE_H
@@ -20,10 +21,12 @@ public:
 
     };
 
+    //insert a value into the tree
     void insertAtTree(T &value)
     {
         SBTNode<T> *fn = find(root, value);
-        if(fn == NULL){
+        if(fn == NULL)
+        {
             insert(root,NULL,value);
         }
     }
@@ -33,21 +36,25 @@ public:
         return root == NULL;
     }
 
+    // removes the value from he tree
     bool erase(T &value)
     {
         return remove(root, value);
     }
 
+    //destorys the tree
     void clear()
     {
         destroy(root);
     };
 
+    //returns the size of the tree
     int getSize()
     {
         return size(root);
     };
 
+    //prints the tree in a good way
     void prettyPrint()
     {
         print(root);
@@ -90,6 +97,7 @@ protected: // functions need to be virtual if inheritance is used
         }
     };
 
+    //destroys the node
     void destroy(SBTNode<T>* node)
     {
         if(node != NULL)
@@ -102,6 +110,7 @@ protected: // functions need to be virtual if inheritance is used
         root = NULL;
     };
 
+    // insert a node
     void insert(SBTNode<T> *&node, SBTNode<T> *parent, T &value)
     {
         if(node == NULL)
@@ -120,6 +129,7 @@ protected: // functions need to be virtual if inheritance is used
         }
     };
 
+    // find a value in the node tree
     SBTNode<T>* find(SBTNode<T> *&node, T &value)
     {
         if(node == NULL)
@@ -132,6 +142,7 @@ protected: // functions need to be virtual if inheritance is used
             return find(node->right, value);
     };
 
+    // remove a value from the node tree
     bool remove(SBTNode<T> *node, T &value)
     {
         SBTNode<T> *fn = find(node, value);
@@ -191,6 +202,7 @@ protected: // functions need to be virtual if inheritance is used
         };
     };
 
+    //returns the size of the tree
     int size(SBTNode<T> *&myRoot) const
     {
         if(!myRoot)
@@ -203,13 +215,20 @@ protected: // functions need to be virtual if inheritance is used
         }
     };
 
-    void print(SBTNode<T> *&myRoot)
+    // prints the tree (called by prettyPrint), but everything on a newline so not that pretty
+    void print(SBTNode<T> *&myRoot, int indent=0)
     {
         if(myRoot)
         {
-            print(myRoot->left);
-            print(myRoot->right);
-            cout << myRoot->data << endl;
+            if(myRoot->left)
+                print(myRoot->left, indent+4);
+            if(myRoot->right)
+                print(myRoot->right, indent+4);
+            if (indent)
+            {
+                cout << std::setw(indent) << " ";
+            }
+            cout<< myRoot->data << "\n ";
         }
     };
 

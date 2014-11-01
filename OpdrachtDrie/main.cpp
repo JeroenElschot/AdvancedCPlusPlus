@@ -27,6 +27,7 @@ int main()
     cout << "=======================================" << endl;
     cout << endl;
     cout << "Size: " << bin->getSize() << endl;
+    bin->prettyPrint();
 
     BinaryTree<int>::iterator it;
     for(BinaryTree<int>::iterator it = bin->begin(); it != bin->end(); it++)
