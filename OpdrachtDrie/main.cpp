@@ -9,18 +9,12 @@ using namespace std;
 int main()
 {
     BinaryTree<int> *bin = new BinaryTree<int>();
-    int a = 1;
-    int b = 8;
-    int c = 3;
-    int d = 4;
-    int e = 10;
 
-    bin->insertAtTree(a);
-    bin->insertAtTree(b);
-    bin->insertAtTree(c);
-    bin->insertAtTree(d);
-    bin->insertAtTree(e);
-    bin->insertAtTree(e);
+    int numberlist [5] = { 1,8, 3, 4, 10 };
+    for ( int n=0 ; n<5 ; ++n )
+    {
+        bin->insertAtTree(numberlist[n]);
+    }
 
     cout << "=======================================" << endl;
     cout << "Printing out the tree" << endl;

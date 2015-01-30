@@ -10,7 +10,6 @@ template <class T>
 class BinaryTree
 {
 public:
-
     BinaryTree()
     {
         root = NULL;
@@ -240,6 +239,40 @@ public:
     private:
         SBTNode<T>* current;
         BinaryTree* tree;
+        iterator left()
+        {
+            return iterator(current->left, tree);
+        }
+
+        iterator right()
+        {
+            return iterator(current->right, tree);
+        }
+
+        iterator up()
+        {
+            return iterator(current->parent, tree);
+        }
+
+        iterator erase(iterator it)
+        {
+            delete this;
+        }
+
+        bool isRoot()
+        {
+            return (current == tree->root);
+        }
+
+        bool hasLeftChild()
+        {
+            return current->left != NULL;
+        }
+
+        bool hasRightChild()
+        {
+            return current->right != NULL;
+        }
 
     public:
 
@@ -267,21 +300,6 @@ public:
             return &(current->data);
         }
 
-        iterator left()
-        {
-            return iterator(current->left, tree);
-        }
-
-        iterator right()
-        {
-            return iterator(current->right, tree);
-        }
-
-        iterator up()
-        {
-            return iterator(current->parent, tree);
-        }
-
         iterator operator++()
         {
 
@@ -298,11 +316,6 @@ public:
                 *this = up();
             }
             return *this;
-        }
-
-        iterator erase(iterator it)
-        {
-            delete this;
         }
 
         iterator operator++(int dummy)
@@ -323,11 +336,6 @@ public:
             return temp;
         }
 
-        bool isRoot()
-        {
-            return (current == tree->root);
-        }
-
         bool operator==(const iterator& other)
         {
             return (current == other.current) && (tree == other.tree);
@@ -337,17 +345,6 @@ public:
         {
             return (current != other.current) || (tree != other.tree);
         }
-
-        bool hasLeftChild()
-        {
-            return current->left != NULL;
-        }
-
-        bool hasRightChild()
-        {
-            return current->right != NULL;
-        }
-
     };
 
     iterator begin()
