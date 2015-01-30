@@ -21,7 +21,7 @@ public:
     };
 
     //insert a value into the tree
-    void insertAtTree(T &value)
+    void insert(T &value)
     {
         SBTNode<T> *fn = find(root, value);
         if(fn == NULL)
@@ -61,15 +61,15 @@ public:
 
     bool operator<(BinaryTree<T> &value)
     {
-        return (root->data < value.first()->data);
+        return (root->data < value.front()->data);
     }
 
     void operator= (BinaryTree<T> &value)
     {
-        equals(root,value.first());
+        equals(root,value.front());
     };
 
-    SBTNode<T>*& first()
+    SBTNode<T>*& front()
     {
         return root;
     }
