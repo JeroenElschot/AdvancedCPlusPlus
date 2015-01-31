@@ -14,15 +14,15 @@ void stringTree();
 int main()
 {
     charTree();
-    //intTree();
-    //stringTree();
+    intTree();
+    stringTree();
     return 0;
 }
 
 void intTree(){
 
     BinaryTree<int> *bin = new BinaryTree<int>();
-    int numberlist [9] = { 8,3,1,6,4,7,10,14,13 }; // http://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Binary_search_tree.svg/220px-Binary_search_tree.svg.png
+    int numberlist [9] = { 5,4,7,6,2,19,1,9,20 }; // http://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Binary_search_tree.svg/220px-Binary_search_tree.svg.png
     for ( int n=0 ; n<9 ; ++n )
     {
         bin->insert(numberlist[n]);
@@ -51,8 +51,8 @@ void intTree(){
 void charTree(){
 
     BinaryTree<char> *bin = new BinaryTree<char>();
-    char numberlist[] = { 'a','b','c','d','z'};
-    for ( int n=0 ; n<5 ; ++n )
+    char numberlist[] = { 'd','a','c','z','n','b','m'};
+    for ( int n=0 ; n<7 ; ++n )
     {
         bin->insert(numberlist[n]);
     }
@@ -74,8 +74,8 @@ void charTree(){
 void stringTree(){
 
     BinaryTree<string> *bin = new BinaryTree<string>();
-    string numberlist[5] = { "aap","mies", "boot","twix","rofl"};
-    for ( int n=0 ; n<5 ; ++n )
+    string numberlist[7] = { "jan","piet", "klaas","aap","kip","koe","varken"};
+    for ( int n=0 ; n<7 ; ++n )
     {
         bin->insert(numberlist[n]);
     }
