@@ -34,7 +34,7 @@
 
 1422625043 c:\users\jeroenelschot\documents\github\advancedcplusplus\opdrachtdrie\sbtnode.h
 
-1422708787 source:f:\advancedcplusplus\opdrachtdrie\main.cpp
+1422709684 source:f:\advancedcplusplus\opdrachtdrie\main.cpp
 	<ostream>
 	<iostream>
 	"main.h"
@@ -42,10 +42,10 @@
 
 1422646450 f:\advancedcplusplus\opdrachtdrie\main.h
 
-1422709453 f:\advancedcplusplus\opdrachtdrie\binarytree.h
+1422711889 f:\advancedcplusplus\opdrachtdrie\binarytree.h
 	<ostream>
 	<iomanip>
 	"SBTNode.h"
 
-1422707140 f:\advancedcplusplus\opdrachtdrie\sbtnode.h
+1422711698 f:\advancedcplusplus\opdrachtdrie\sbtnode.h
 

@@ -41,14 +41,14 @@ public:
         return remove(root, value);
     }
 
-    //destorys the tree
+    //destroys the tree
     void clear()
     {
         destroy(root);
     };
 
     //returns the size of the tree
-    int getSize()
+    int size()
     {
         return size(root);
     };
@@ -59,29 +59,9 @@ public:
         print(root);
     };
 
-    bool operator<(BinaryTree<T> &value)
-    {
-        return (root->data < value.front()->data);
-    }
-
-    void operator= (BinaryTree<T> &value)
-    {
-        equals(root,value.front());
-    };
-
-    SBTNode<T>*& front()
-    {
-        return root;
-    }
-
 protected: // functions need to be virtual if inheritance is used
 
     SBTNode<T> *root;
-
-    SBTNode<T> getRoot()
-    {
-        return root;
-    }
 
     void equals(SBTNode<T>*& node, SBTNode<T>* value)
     {
@@ -205,7 +185,7 @@ protected: // functions need to be virtual if inheritance is used
     };
 
     //returns the size of the tree
-    int size(SBTNode<T> *&myRoot) const
+    int size(SBTNode<T> *myRoot) const
     {
         if(!myRoot)
         {
@@ -242,6 +222,12 @@ protected: // functions need to be virtual if inheritance is used
             }
         }
     };
+
+private:
+    SBTNode<T>* front()
+    {
+        return &root;
+    }
 
 
 public:
