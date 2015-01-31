@@ -17,7 +17,7 @@ public:
 
     ~BinaryTree()
     {
-
+        delete root;
     };
 
     //insert a value into the tree
@@ -93,6 +93,7 @@ protected: // functions need to be virtual if inheritance is used
                 equals(node->left, value->left);
             if(value->right != NULL)
                 equals(node->right, value->right);
+
         }
     };
 
@@ -197,6 +198,8 @@ protected: // functions need to be virtual if inheritance is used
                 else
                     parent->right = NULL;
             }
+
+            //delete parent;
             return true;
         };
     };

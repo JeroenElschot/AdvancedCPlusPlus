@@ -34,3 +34,18 @@
 
 1422625043 c:\users\jeroenelschot\documents\github\advancedcplusplus\opdrachtdrie\sbtnode.h
 
+1422647982 source:f:\advancedcplusplus\opdrachtdrie\main.cpp
+	<ostream>
+	<iostream>
+	"main.h"
+	"BinaryTree.h"
+
+1422646450 f:\advancedcplusplus\opdrachtdrie\main.h
+
+1422706864 f:\advancedcplusplus\opdrachtdrie\binarytree.h
+	<ostream>
+	<iomanip>
+	"SBTNode.h"
+
+1422707124 f:\advancedcplusplus\opdrachtdrie\sbtnode.h
+
