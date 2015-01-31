@@ -41,13 +41,8 @@ void intTree(){
     BinaryTree<int>::iterator it;
     for(BinaryTree<int>::iterator it = bin->begin(); it != bin->end(); it++)
     {
-        cout << *it << endl;
-        if(*it == 1){
-            bin->erase(*it);
-        }
+        //cout << *it << endl;
     }
-
-    bin->prettyPrint();
 
     cout << endl;
     delete bin;
@@ -75,7 +70,7 @@ void charTree(){
     BinaryTree<char>::iterator it;
     for(BinaryTree<char>::iterator it = bin->begin(); it != bin->end(); it++)
     {
-        cout << *it << endl;
+        //cout << *it << endl;
     }
 
     cout << endl;
@@ -105,7 +100,7 @@ void stringTree(){
     BinaryTree<string>::iterator it;
     for(BinaryTree<string>::iterator it = bin->begin(); it != bin->end(); it++)
     {
-        cout << *it << endl;
+        //cout << *it << endl;
     }
 
     cout << endl;
