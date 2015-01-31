@@ -264,11 +264,6 @@ public:
             return iterator(current->parent, tree);
         }
 
-        iterator erase(iterator it)
-        {
-            delete this;
-        }
-
         bool isRoot()
         {
             return (current == tree->root);
@@ -357,15 +352,21 @@ public:
         }
     };
 
+    void erase(iterator *it)
+    {
+        it = NULL;
+        delete it;
+    }
+
     iterator begin()
-   {
-       SBTNode<T>* theCurrent = root;
-       while(theCurrent->left != NULL)
-       {
-           theCurrent = theCurrent->left;
-       }
-       return iterator(theCurrent,this);
-   }
+    {
+        SBTNode<T>* theCurrent = root;
+        while(theCurrent->left != NULL)
+        {
+            theCurrent = theCurrent->left;
+        }
+        return iterator(theCurrent,this);
+    }
 
     iterator end()
     {

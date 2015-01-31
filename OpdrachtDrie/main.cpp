@@ -13,9 +13,9 @@ void stringTree();
 
 int main()
 {
-    charTree();
+    //charTree();
     intTree();
-    stringTree();
+    //stringTree();
     return 0;
 }
 
@@ -42,7 +42,12 @@ void intTree(){
     for(BinaryTree<int>::iterator it = bin->begin(); it != bin->end(); it++)
     {
         cout << *it << endl;
+        if(*it == 1){
+            bin->erase(*it);
+        }
     }
+
+    bin->prettyPrint();
 
     cout << endl;
     delete bin;
