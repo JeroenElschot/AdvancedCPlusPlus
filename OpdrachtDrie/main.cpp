@@ -10,9 +10,10 @@ int main()
 {
     BinaryTree<int> *bin = new BinaryTree<int>();
 
-    //int numberlist [5] = { 1,8, 3, 4, 10 };
-    int numberlist [15] = { 1,8, 3, 4, 10,11,14,29,21,2,5,6,7,30,31 };
-    for ( int n=0 ; n<15 ; ++n )
+   // int numberlist [5] = { 1,8, 3, 4, 10 };
+    int numberlist [9] = { 2,1,3,7,10,5,8,6,4 };
+    //int numberlist [15] = { 1,8, 3, 4, 10,11,14,29,21,2,5,6,7,30,31 };
+    for ( int n=0 ; n<9 ; ++n )
     {
         bin->insert(numberlist[n]);
     }

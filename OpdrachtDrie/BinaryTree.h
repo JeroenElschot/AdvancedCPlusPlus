@@ -220,17 +220,26 @@ protected: // functions need to be virtual if inheritance is used
     // prints the tree (called by prettyPrint), but everything on a newline so not that pretty
     void print(SBTNode<T> *&myRoot, int indent=0)
     {
-        if(myRoot)
+        if(myRoot!= NULL)
         {
-            if(myRoot->left)
-                print(myRoot->left, indent+4);
             if(myRoot->right)
-                print(myRoot->right, indent+4);
-            if (indent)
             {
-                cout << std::setw(indent) << " ";
+                print(myRoot->right, indent+4);
             }
-            cout<< myRoot->data << "\n ";
+            if(indent)
+            {
+                cout << setw(indent) << ' ';
+            }
+            if (myRoot->right)
+            {
+                cout <<"/\n" << setw(indent) << ' ';
+            }
+            cout << myRoot->data << "\n";
+            if(myRoot->left)
+            {
+                cout << setw(indent) << ' ' << " \\\n";
+                print(myRoot->left, indent+4);
+            }
         }
     };
 
