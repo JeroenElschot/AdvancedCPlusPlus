@@ -21,7 +21,7 @@ public:
     };
 
     //insert a value into the tree
-    void insert(T &value)
+    void insert(T value)
     {
         SBTNode<T> *fn = find(root, value);
         if(fn == NULL)
