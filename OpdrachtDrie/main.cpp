@@ -21,10 +21,12 @@ int main()
 
     cout << "=======================================" << endl;
     cout << "Printing out the tree" << endl;
+    cout << "Turn your head or screen to read the tree" << endl;
     cout << "=======================================" << endl;
     cout << endl;
-    cout << "Size: " << bin->getSize() << endl;
+    //cout << "Size: " << bin->getSize() << endl;
     bin->prettyPrint();
+    cout << "=======================================" << endl;
 
     //BinaryTree<int>::iterator it;
     //for(BinaryTree<int>::iterator it = bin->begin(); it != bin->end(); it++)
