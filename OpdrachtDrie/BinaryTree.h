@@ -17,8 +17,17 @@ public:
 
     ~BinaryTree()
     {
-        delete root;
+        deleteTree(root);
     };
+
+    void deleteTree(SBTNode<T>*& n)
+    {
+        if (n->left != NULL)
+            deleteTree(n->left);
+        if (n->right != NULL)
+            deleteTree(n->right);
+        delete n;
+    }
 
     //insert a value into the tree
     void insert(T value)
@@ -41,7 +50,7 @@ public:
         return remove(root, value);
     }
 
-    //destroys the tree
+    //destorys the tree
     void clear()
     {
         destroy(root);
@@ -59,16 +68,25 @@ public:
         print(root);
     };
 
+    SBTNode<T>* front()
+    {
+        return &root;
+    }
+
 protected: // functions need to be virtual if inheritance is used
 
     SBTNode<T> *root;
+
+    SBTNode<T> getRoot()
+    {
+        return root;
+    }
 
     void equals(SBTNode<T>*& node, SBTNode<T>* value)
     {
         if(value != NULL)
         {
-            node = new SBTNode<T>();
-            *node = *value;
+            node = value;
             if(value->left != NULL)
                 equals(node->left, value->left);
             if(value->right != NULL)
@@ -198,7 +216,7 @@ protected: // functions need to be virtual if inheritance is used
     };
 
     // prints the tree (called by prettyPrint), but everything on a newline so not that pretty
-    void print(SBTNode<T> *&myRoot, int indent=0)
+    void print(SBTNode<T> *myRoot, int indent=0)
     {
         if(myRoot!= NULL)
         {
@@ -222,12 +240,6 @@ protected: // functions need to be virtual if inheritance is used
             }
         }
     };
-
-private:
-    SBTNode<T>* front()
-    {
-        return &root;
-    }
 
 
 public:
