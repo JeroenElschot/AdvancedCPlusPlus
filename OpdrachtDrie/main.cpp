@@ -26,12 +26,12 @@ int main()
     cout << "Size: " << bin->getSize() << endl;
     bin->prettyPrint();
 
-    BinaryTree<int>::iterator it;
-    for(BinaryTree<int>::iterator it = bin->begin(); it != bin->end(); it++)
-    {
+    //BinaryTree<int>::iterator it;
+    //for(BinaryTree<int>::iterator it = bin->begin(); it != bin->end(); it++)
+    //{
         //cout << *it << endl;
-    }
+    //}
 
-    cout << endl;
+    //cout << endl;
     delete bin;
 }
