@@ -17,11 +17,12 @@ public:
 
     ~BinaryTree()
     {
-        deleteTree(root);
+        deleteTree(root);// calls the delete tree for the root to delete the whole tree
     };
 
     void deleteTree(SBTNode<T>* n)
     {
+        // remove when left and right are null, keep deleting until there is no tree left from the given node
         if (n->left != NULL)
             deleteTree(n->left);
         if (n->right != NULL)
@@ -218,6 +219,7 @@ protected: // functions need to be virtual if inheritance is used
     // prints the tree (called by prettyPrint), but everything on a newline so not that pretty
     void print(SBTNode<T> *myRoot, int indent=0)
     {
+        // a pretty print of the tree, read if from left to right, not from top to bottom
         if(myRoot!= NULL)
         {
             if(myRoot->right)
@@ -360,6 +362,7 @@ public:
 
     iterator begin()
     {
+        // start with the smalles one, that is the most left leaf of the tree
         SBTNode<T>* theCurrent = root;
         while(theCurrent->left != NULL)
         {
