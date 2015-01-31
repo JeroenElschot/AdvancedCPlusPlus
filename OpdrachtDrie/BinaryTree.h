@@ -20,7 +20,7 @@ public:
         deleteTree(root);
     };
 
-    void deleteTree(SBTNode<T>*& n)
+    void deleteTree(SBTNode<T>* n)
     {
         if (n->left != NULL)
             deleteTree(n->left);
@@ -358,10 +358,14 @@ public:
     };
 
     iterator begin()
-    {
-        SBTNode<T>* theCurrent = root;
-        return iterator(theCurrent,this);
-    }
+   {
+       SBTNode<T>* theCurrent = root;
+       while(theCurrent->left != NULL)
+       {
+           theCurrent = theCurrent->left;
+       }
+       return iterator(theCurrent,this);
+   }
 
     iterator end()
     {

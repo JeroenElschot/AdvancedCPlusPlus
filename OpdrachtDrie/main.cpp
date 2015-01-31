@@ -22,8 +22,8 @@ int main()
 void intTree(){
 
     BinaryTree<int> *bin = new BinaryTree<int>();
-    int numberlist [9] = { 5,4,7,6,2,19,1,9,20 }; // http://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Binary_search_tree.svg/220px-Binary_search_tree.svg.png
-    for ( int n=0 ; n<9 ; ++n )
+    int numberlist [10] = { 5,4,7,6,2,19,3,1,9,20 }; // http://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Binary_search_tree.svg/220px-Binary_search_tree.svg.png
+    for ( int n=0 ; n<10 ; ++n )
     {
         bin->insert(numberlist[n]);
     }
@@ -38,13 +38,13 @@ void intTree(){
     cout << endl;
     cout << "=======================================" << endl;
 
-    //BinaryTree<int>::iterator it;
-    //for(BinaryTree<int>::iterator it = bin->begin(); it != bin->end(); it++)
-    //{
-    //    cout << *it << endl;
-    //}
+    BinaryTree<int>::iterator it;
+    for(BinaryTree<int>::iterator it = bin->begin(); it != bin->end(); it++)
+    {
+        cout << *it << endl;
+    }
 
-    //cout << endl;
+    cout << endl;
     delete bin;
 }
 
@@ -67,6 +67,13 @@ void charTree(){
     cout << endl;
     cout << "=======================================" << endl;
 
+    BinaryTree<char>::iterator it;
+    for(BinaryTree<char>::iterator it = bin->begin(); it != bin->end(); it++)
+    {
+        cout << *it << endl;
+    }
+
+    cout << endl;
     delete bin;
 
 }
@@ -89,6 +96,14 @@ void stringTree(){
     bin->prettyPrint();
     cout << endl;
     cout << "=======================================" << endl;
+
+    BinaryTree<string>::iterator it;
+    for(BinaryTree<string>::iterator it = bin->begin(); it != bin->end(); it++)
+    {
+        cout << *it << endl;
+    }
+
+    cout << endl;
 
     delete bin;
 
